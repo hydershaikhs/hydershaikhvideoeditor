@@ -1,88 +1,199 @@
 /* ==========================================================================
-   Hyder Shaikh — Luxury Video Editor Portfolio
-   Maroon & White Color Palette & Bespoke UI
+   Hyder Shaikh — Professional Video Editor Portfolio
+   Theme: Pure White (Primary) & Velvet Maroon (Secondary)
+   Ultra-Clean Luxury Editorial Aesthetics & Micro-Animations
    ========================================================================== */
 
 :root {
+  --color-primary-bg: #FCFCFD;
+  --color-surface-white: #FFFFFF;
+  --color-surface-soft: #F6F7F9;
+  --color-surface-card: #FFFFFF;
+  
+  /* Velvet Maroon Palette (Secondary) */
   --color-maroon-deep: #580F1B;
-  --color-maroon-dark: #2A050B;
-  --color-maroon-black: #150205;
-  --color-maroon-accent: #A91B3E;
-  --color-maroon-bright: #DF5876;
-  --color-white: #FFFFFF;
-  --color-offwhite: #F8F9FA;
-  --color-border-subtle: rgba(255, 255, 255, 0.12);
-  --color-border-glow: rgba(169, 27, 62, 0.35);
+  --color-maroon-dark: #6E1128;
+  --color-maroon-main: #8A1432;
+  --color-maroon-vivid: #A91B3E;
+  --color-maroon-light: #FCE7EB;
+  --color-maroon-tint: #FDF2F4;
+  
+  /* Text & Neutral Slate Palette */
+  --color-text-main: #0F172A;
+  --color-text-muted: #475569;
+  --color-text-subtle: #64748B;
+  --color-border-light: #E2E8F0;
+  --color-border-maroon: rgba(138, 20, 50, 0.18);
 }
 
-/* Custom Scrollbar */
+/* Base Body Setup */
+body {
+  background-color: var(--color-primary-bg);
+  color: var(--color-text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #8A1432;
+  selection-color: #FFFFFF;
+}
+
+::selection {
+  background-color: #8A1432;
+  color: #FFFFFF;
+}
+
+/* Custom Luxury Scrollbar */
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #190306;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #580F1B;
+  background: #A91B3E;
   border-radius: 9999px;
-  border: 2px solid #190306;
+  border: 2px solid #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8A1432;
+  background: #580F1B;
 }
 
-/* Film Grain Texture */
-.film-grain {
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  opacity: 0.035;
-  pointer-events: none;
-  z-index: 999;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+/* Subtle Film Texture / Grid Overlay */
+.cinema-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
 }
 
-/* Nav Underline on Hover */
-.hover-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: var(--color-white);
-  transition: width 0.3s ease;
+/* Floating Animation Keyframes */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
 }
 
-.hover-underline:hover::after {
-  width: 100%;
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
 }
 
-/* Filter Active State */
-.filter-btn.active {
-  background-color: var(--color-white);
-  color: var(--color-maroon-dark);
-  font-weight: 700;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
-/* Project Card Hover Shadows & Lighting */
-.project-card {
+.animate-float-gentle {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+/* Shimmer Button Effect */
+.btn-maroon-shimmer {
+  background: linear-gradient(110deg, #580F1B 0%, #8A1432 45%, #C51B47 50%, #8A1432 55%, #580F1B 100%);
+  background-size: 200% 100%;
+  transition: all 0.4s ease;
+}
+
+.btn-maroon-shimmer:hover {
+  background-position: 100% 0;
+  box-shadow: 0 12px 25px -6px rgba(138, 20, 50, 0.4);
+  transform: translateY(-1.5px);
+}
+
+/* Luxury Card Shadows */
+.luxury-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-light);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
 
-.project-card:hover {
-  border-color: rgba(255, 255, 255, 0.4);
+.luxury-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(138, 20, 50, 0.3);
+  box-shadow: 0 20px 35px -10px rgba(88, 15, 27, 0.12);
 }
 
-/* Before / After Slider Touch Action & Cursor */
+/* Nav Underline Effect in Maroon */
+.nav-link {
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-maroon-main);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 99px;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active Filter Button in Maroon */
+.filter-btn {
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #580F1B 0%, #8A1432 100%);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(138, 20, 50, 0.3);
+}
+
+/* Custom Interactive Cursor Dot */
+.custom-cursor {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(138, 20, 50, 0.6);
+  background-color: rgba(138, 20, 50, 0.08);
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+  z-index: 9999;
+}
+
+.custom-cursor.hovered {
+  width: 44px;
+  height: 44px;
+  background-color: rgba(138, 20, 50, 0.18);
+  border-color: #8A1432;
+}
+
+/* Before / After Slider Styling */
 #before-after-container {
   touch-action: pan-y;
+  box-shadow: 0 25px 50px -12px rgba(88, 15, 27, 0.15);
 }
 
 #slider-handle {
@@ -93,46 +204,28 @@
   cursor: grabbing;
 }
 
-/* Keyframe Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Scroll Reveal Classes */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Smooth Focus Rings */
+/* Form Controls with Maroon Focus */
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: var(--color-white) !important;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+  border-color: var(--color-maroon-main) !important;
+  box-shadow: 0 0 0 4px rgba(138, 20, 50, 0.12) !important;
 }
 
-/* Glassmorphism helpers */
-.glass-panel {
-  background: rgba(42, 5, 11, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-/* Button Subtle Hover Glow */
-.btn-glow:hover {
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-}
-
-/* Responsive adjustments */
-@media (max-width: 640px) {
-  .hero-heading {
-    font-size: 2.25rem;
-    line-height: 1.15;
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none !important;
   }
 }

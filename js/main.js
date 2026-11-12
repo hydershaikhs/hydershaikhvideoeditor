@@ -1,12 +1,14 @@
 /**
- * Hyder Shaikh — Video Editor Portfolio JavaScript
- * Includes: Before/After Slider, Filter System, Video Lightbox, Pricing Estimator,
- * Web Audio FX, Toast notifications, and WhatsApp integration.
+ * Hyder Shaikh — Professional Video Editor Portfolio
+ * Interactive Systems: Custom Cursor, Scroll Reveal, Before/After Slider,
+ * Lightbox Modal, Pricing Calculator, Web Audio FX & Toast.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbarScroll();
   initMobileMenu();
+  initCustomCursor();
+  initScrollReveal();
   initBeforeAfterSlider();
   initProjectFilters();
   initPricingCalculator();
@@ -19,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function initNavbarScroll() {
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add('py-3', 'bg-maroon-950/95', 'shadow-xl');
-      navbar.classList.remove('py-4', 'bg-maroon-950/80');
+    if (window.scrollY > 30) {
+      navbar.classList.add('py-2.5', 'bg-white/95', 'shadow-md');
+      navbar.classList.remove('py-3.5', 'bg-white/90');
     } else {
-      navbar.classList.add('py-4', 'bg-maroon-950/80');
-      navbar.classList.remove('py-3', 'bg-maroon-950/95', 'shadow-xl');
+      navbar.classList.add('py-3.5', 'bg-white/90');
+      navbar.classList.remove('py-2.5', 'bg-white/95', 'shadow-md');
     }
   });
 }
@@ -40,6 +42,7 @@ function initMobileMenu() {
   if (!menuBtn || !mobileMenu) return;
 
   menuBtn.addEventListener('click', () => {
+    playClickSFX();
     const isHidden = mobileMenu.classList.contains('hidden');
     if (isHidden) {
       mobileMenu.classList.remove('hidden');
@@ -50,7 +53,6 @@ function initMobileMenu() {
     }
   });
 
-  // Close menu on link click
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
@@ -60,7 +62,63 @@ function initMobileMenu() {
 }
 
 /* -------------------------------------------------------------
- * 3. Interactive Before & After Color Grading Comparison Slider
+ * 3. Custom Smooth Glowing Cursor Follower (Desktop Only)
+ * ----------------------------------------------------------- */
+function initCustomCursor() {
+  const cursor = document.getElementById('custom-cursor');
+  if (!cursor || window.innerWidth < 768) return;
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  // Smooth lerp loop
+  function renderCursor() {
+    cursorX += (mouseX - cursorX) * 0.18;
+    cursorY += (mouseY - cursorY) * 0.18;
+    cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+    requestAnimationFrame(renderCursor);
+  }
+  requestAnimationFrame(renderCursor);
+
+  // Expand cursor on interactive elements
+  const interactives = document.querySelectorAll('a, button, input, select, textarea, .project-card, #before-after-container');
+  interactives.forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+  });
+}
+
+/* -------------------------------------------------------------
+ * 4. IntersectionObserver for Smooth Scroll Reveals
+ * ----------------------------------------------------------- */
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.reveal-on-scroll');
+  if (!revealElements.length) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealElements.forEach(el => observer.observe(el));
+}
+
+/* -------------------------------------------------------------
+ * 5. Interactive Before & After Color Grading Comparison Slider
  * ----------------------------------------------------------- */
 function initBeforeAfterSlider() {
   const container = document.getElementById('before-after-container');
@@ -75,7 +133,6 @@ function initBeforeAfterSlider() {
     const rect = container.getBoundingClientRect();
     let position = (xPos - rect.left) / rect.width;
 
-    // Constrain within 0% to 100%
     if (position < 0) position = 0;
     if (position > 1) position = 1;
 
@@ -84,7 +141,6 @@ function initBeforeAfterSlider() {
     handle.style.left = `${percent}%`;
   };
 
-  // Mouse Events
   container.addEventListener('mousedown', (e) => {
     isDragging = true;
     setSliderPosition(e.clientX);
@@ -100,7 +156,6 @@ function initBeforeAfterSlider() {
     setSliderPosition(e.clientX);
   });
 
-  // Touch Events for Mobile
   container.addEventListener('touchstart', (e) => {
     isDragging = true;
     setSliderPosition(e.touches[0].clientX);
@@ -117,7 +172,7 @@ function initBeforeAfterSlider() {
 }
 
 /* -------------------------------------------------------------
- * 4. Project Category Filtering
+ * 6. Project Category Filtering
  * ----------------------------------------------------------- */
 function initProjectFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -127,11 +182,12 @@ function initProjectFilters() {
     btn.addEventListener('click', () => {
       playClickSFX();
 
-      // Set active button
-      filterBtns.forEach(b => b.classList.remove('active', 'text-maroon-dark'));
-      filterBtns.forEach(b => b.classList.add('text-white/70'));
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.classList.add('text-slate-600');
+      });
       btn.classList.add('active');
-      btn.classList.remove('text-white/70');
+      btn.classList.remove('text-slate-600');
 
       const filterValue = btn.getAttribute('data-filter');
 
@@ -149,7 +205,7 @@ function initProjectFilters() {
 }
 
 /* -------------------------------------------------------------
- * 5. Video Lightbox Modal System
+ * 7. Video Lightbox Modal System
  * ----------------------------------------------------------- */
 const projectMediaData = {
   showreel: {
@@ -217,7 +273,6 @@ window.closeVideoModal = function() {
   document.body.style.overflow = '';
 };
 
-// Close modal on Escape key or backdrop click
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeVideoModal();
 });
@@ -227,7 +282,7 @@ document.getElementById('video-modal')?.addEventListener('click', (e) => {
 });
 
 /* -------------------------------------------------------------
- * 6. Interactive Pricing & Estimate Calculator
+ * 8. Interactive Pricing & Estimate Calculator
  * ----------------------------------------------------------- */
 function initPricingCalculator() {
   const typeSelect = document.getElementById('calc-type');
@@ -242,17 +297,15 @@ function initPricingCalculator() {
     const qty = Math.max(1, parseInt(qtyInput.value) || 1);
     const speed = speedSelect.value;
 
-    let baseRate = 350; // default YouTube long-form
+    let baseRate = 350;
     if (type === 'reel') baseRate = 65;
     if (type === 'commercial') baseRate = 750;
 
     let total = baseRate * qty;
 
-    // Quantity discounts
-    if (qty >= 5 && qty < 10) total *= 0.90; // 10% off
-    else if (qty >= 10) total *= 0.80; // 20% off
+    if (qty >= 5 && qty < 10) total *= 0.90;
+    else if (qty >= 10) total *= 0.80;
 
-    // Rush fee
     if (speed === 'rush') total *= 1.35;
 
     totalDisplay.textContent = `$${Math.round(total).toLocaleString()} USD`;
@@ -262,11 +315,9 @@ function initPricingCalculator() {
   qtyInput.addEventListener('input', calculate);
   speedSelect.addEventListener('change', calculate);
 
-  // Initial calculation
   calculate();
 }
 
-// Order / Inquire via WhatsApp with pre-filled calculator data
 window.orderViaWhatsApp = function() {
   playClickSFX();
   const type = document.getElementById('calc-type')?.selectedOptions[0]?.text || "Video Editing";
@@ -280,7 +331,7 @@ window.orderViaWhatsApp = function() {
 };
 
 /* -------------------------------------------------------------
- * 7. Copy Email & Toast System
+ * 9. Copy Email & Toast System
  * ----------------------------------------------------------- */
 window.copyEmail = function() {
   playClickSFX();
@@ -308,7 +359,7 @@ function showToast(message) {
 }
 
 /* -------------------------------------------------------------
- * 8. Form Submission Handling
+ * 10. Form Submission
  * ----------------------------------------------------------- */
 window.handleFormSubmit = function(event) {
   event.preventDefault();
@@ -319,7 +370,7 @@ window.handleFormSubmit = function(event) {
 };
 
 /* -------------------------------------------------------------
- * 9. Web Audio API Subtle Cinematic Sound FX
+ * 11. Web Audio API Subtle Click SFX
  * ----------------------------------------------------------- */
 let audioCtx = null;
 let sfxEnabled = true;
@@ -359,13 +410,12 @@ function playClickSFX() {
 
     if (!audioCtx) return;
 
-    // Create subtle tactile click sound
     const osc = audioCtx.createOscillator();
     const gain = audioCtx.createGain();
 
     osc.type = 'triangle';
     osc.frequency.setValueAtTime(800, audioCtx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(200, audioCtx.currentTime + 0.04);
+    osc.frequency.exponentialRampToValueAtTime(220, audioCtx.currentTime + 0.04);
 
     gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.04);
@@ -376,6 +426,6 @@ function playClickSFX() {
     osc.start();
     osc.stop(audioCtx.currentTime + 0.04);
   } catch (err) {
-    // Graceful fallback if audio is not permitted
+    // Graceful fallback
   }
 }

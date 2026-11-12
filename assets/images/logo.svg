@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" fill="none">
+  <defs>
+    <linearGradient id="maroonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#580F1B"/>
+      <stop offset="50%" stop-color="#8A1432"/>
+      <stop offset="100%" stop-color="#C51B47"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2B7A0"/>
+      <stop offset="100%" stop-color="#FCE7EB"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#580F1B" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Logo Icon Container (68x68 rounded squircle) -->
+  <g filter="url(#shadow)">
+    <rect x="16" y="16" width="68" height="68" rx="20" fill="url(#maroonGrad)" />
+    <!-- Outer delicate border -->
+    <rect x="16" y="16" width="68" height="68" rx="20" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1.5" />
+    
+    <!-- Film Reel & Shutter Perforations Top/Bottom -->
+    <circle cx="28" cy="26" r="2.5" fill="#FFFFFF" fill-opacity="0.6"/>
+    <circle cx="40" cy="26" r="2.5" fill="#FFFFFF" fill-opacity="0.6"/>
+    <circle cx="52" cy="26" r="2.5" fill="#FFFFFF" fill-opacity="0.6"/>
+    <circle cx="64" cy="26" r="2.5" fill="#FFFFFF" fill-opacity="0.6"/>
+    <circle cx="72" cy="26" r="2.5" fill="#FFFFFF" fill-opacity="0.6"/>
+
+    <circle cx="28" cy="74" r="2.5" fill="#FFFFFF" fill-opacity="0.6"/>
+    <circle cx="40" cy="74" r="2.5" fill="#FFFFFF" fill-opacity="0.6"/>
+    <circle cx="52" cy="74" r="2.5" fill="#FFFFFF" fill-opacity="0.6"/>
+    <circle cx="64" cy="74" r="2.5" fill="#FFFFFF" fill-opacity="0.6"/>
+    <circle cx="72" cy="74" r="2.5" fill="#FFFFFF" fill-opacity="0.6"/>
+
+    <!-- Stylized 'H' & Play Triangle Glyph in Center -->
+    <!-- Left bar of H -->
+    <path d="M33 36V64" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Crossbar of H transitioning into Play Glyph -->
+    <path d="M33 50H45" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <!-- Right Play Triangle / S contour -->
+    <polygon points="46,39 67,50 46,61" fill="#FFFFFF"/>
+    <!-- Play Triangle Inner Glow Accent -->
+    <polygon points="48,43 62,50 48,57" fill="url(#maroonGrad)"/>
+    <circle cx="53" cy="50" r="2" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Typography: HYDER SHAIKH -->
+  <text x="102" y="49" font-family="'Syne', 'Plus Jakarta Sans', 'Inter', sans-serif" font-size="24" font-weight="900" letter-spacing="1.5" fill="#150205">
+    HYDER <tspan fill="url(#maroonGrad)">SHAIKH</tspan>
+  </text>
+
+  <!-- Subtitle -->
+  <text x="103" y="69" font-family="'Space Grotesk', 'Plus Jakarta Sans', monospace" font-size="9.5" font-weight="700" letter-spacing="3.5" fill="#8A1432">
+    VIDEO EDITOR • COLORIST • MOTION
+  </text>
+
+  <!-- Tiny badge -->
+  <rect x="345" y="38" width="48" height="18" rx="6" fill="#FCE7EB"/>
+  <text x="369" y="50" font-family="monospace" font-size="8.5" font-weight="bold" fill="#8A1432" text-anchor="middle">PRO</text>
+</svg>

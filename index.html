@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hyder Shaikh | Premium Video Editor & Post-Production Artist</title>
-  <meta name="description" content="Portfolio of Hyder Shaikh — Professional Video Editor, Colorist, and Motion Graphics Designer crafting high-retention cinematic visuals.">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23580F1B'/><text x='50%' y='65%' font-size='50' font-weight='900' fill='%23FFFFFF' text-anchor='middle' font-family='sans-serif'>HS</text></svg>">
+  <title>Hyder Shaikh | Video Editor & Post-Production Artist</title>
+  <meta name="description" content="Official portfolio of Hyder Shaikh — Senior Video Editor, Colorist, and Motion Designer. Specializing in high-retention YouTube edits, luxury commercials, and viral short-form.">
 
-  <!-- Google Fonts: Syne & Plus Jakarta Sans -->
+  <!-- Favicon using newly generated Maroon Logo -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-icon.svg">
+
+  <!-- Google Fonts: Syne, Plus Jakarta Sans & Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,39 +32,20 @@
               600: '#A91B3E',
               700: '#8A1432',
               800: '#6E1128',
-              900: '#580F1B', // Primary deep luxury maroon
-              950: '#2A050B', // Dark velvet maroon background
-              black: '#150205',
+              900: '#580F1B', // Deep Luxury Wine Maroon (Secondary)
+              950: '#2A050B',
             },
-            cream: {
-              50: '#FDFCF9',
-              100: '#F8F6F0',
-              200: '#EDE8DE',
+            canvas: {
+              DEFAULT: '#FCFCFD',
+              card: '#FFFFFF',
+              subtle: '#F8F9FB',
+              border: '#E8ECF2',
             }
           },
           fontFamily: {
             heading: ['Syne', 'sans-serif'],
             body: ['Plus Jakarta Sans', 'sans-serif'],
             mono: ['Space Grotesk', 'monospace'],
-          },
-          keyframes: {
-            marquee: {
-              '0%': { transform: 'translateX(0%)' },
-              '100%': { transform: 'translateX(-50%)' },
-            },
-            pulseSlow: {
-              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-              '50%': { opacity: '0.8', transform: 'scale(1.04)' },
-            },
-            floatSlow: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
-            }
-          },
-          animation: {
-            marquee: 'marquee 25s linear infinite',
-            pulseSlow: 'pulseSlow 6s ease-in-out infinite',
-            floatSlow: 'floatSlow 4s ease-in-out infinite',
           }
         }
       }
@@ -74,245 +55,264 @@
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 
-  <!-- Custom Styles -->
+  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-maroon-950 text-white font-body antialiased overflow-x-hidden selection:bg-maroon-600 selection:text-white">
+<body class="bg-[#FCFCFD] text-slate-900 font-body antialiased selection:bg-maroon-700 selection:text-white cinema-grid-bg relative">
 
-  <!-- Grain Texture Overlay for Film Aesthetic -->
-  <div class="film-grain"></div>
+  <!-- Custom Smooth Mouse Cursor (Desktop) -->
+  <div class="custom-cursor" id="custom-cursor"></div>
 
-  <!-- Ambient Glow Elements -->
-  <div class="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-b from-maroon-700/30 via-maroon-900/20 to-transparent blur-[120px] rounded-full pointer-events-none -z-10 animate-pulseSlow"></div>
-  <div class="fixed bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-maroon-800/20 blur-[130px] rounded-full pointer-events-none -z-10"></div>
-  <div class="fixed top-1/3 left-[-10%] w-[450px] h-[450px] bg-maroon-600/15 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+  <!-- Subtle Maroon Ambient Glows in Background -->
+  <div class="fixed top-[-8%] left-1/2 -translate-x-1/2 w-[750px] h-[450px] bg-gradient-to-b from-maroon-200/40 via-maroon-100/20 to-transparent blur-[130px] rounded-full pointer-events-none -z-10 animate-pulse-glow"></div>
+  <div class="fixed top-1/3 -right-20 w-[450px] h-[450px] bg-maroon-100/30 blur-[140px] rounded-full pointer-events-none -z-10"></div>
+  <div class="fixed bottom-10 -left-20 w-[400px] h-[400px] bg-maroon-200/25 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
-  <!-- Navigation Bar -->
-  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 backdrop-blur-md bg-maroon-950/80 border-b border-white/10" id="navbar">
+  <!-- Navigation Header (White Surface with Maroon Accents) -->
+  <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-3.5 px-6 md:px-12 backdrop-blur-xl bg-white/90 border-b border-slate-200/80 shadow-sm" id="navbar">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       
-      <!-- Logo -->
+      <!-- Logo Branding with Bespoke Logo -->
       <a href="#hero" class="group flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-maroon-600 to-maroon-900 border border-white/30 flex items-center justify-center font-heading font-black text-white text-lg shadow-lg shadow-maroon-900/50 group-hover:scale-105 transition-transform duration-300">
-          HS
+        <!-- Embedded High-Definition SVG Monogram -->
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-maroon-900 via-maroon-800 to-maroon-700 p-0.5 shadow-md shadow-maroon-900/20 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+          <svg viewBox="0 0 100 100" class="w-full h-full" fill="none">
+            <rect x="8" y="8" width="84" height="84" rx="22" fill="#580F1B"/>
+            <circle cx="25" cy="22" r="3" fill="#FFFFFF" fill-opacity="0.8"/>
+            <circle cx="50" cy="22" r="3" fill="#FFFFFF" fill-opacity="0.8"/>
+            <circle cx="75" cy="22" r="3" fill="#FFFFFF" fill-opacity="0.8"/>
+            <circle cx="25" cy="78" r="3" fill="#FFFFFF" fill-opacity="0.8"/>
+            <circle cx="50" cy="78" r="3" fill="#FFFFFF" fill-opacity="0.8"/>
+            <circle cx="75" cy="78" r="3" fill="#FFFFFF" fill-opacity="0.8"/>
+            <path d="M30 34V66" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+            <path d="M30 50H45" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+            <polygon points="46,37 72,50 46,63" fill="#FFFFFF"/>
+            <polygon points="49,42 66,50 49,58" fill="#8A1432"/>
+          </svg>
         </div>
         <div class="flex flex-col">
-          <span class="font-heading font-bold tracking-wider text-base md:text-lg text-white group-hover:text-maroon-200 transition-colors">HYDER SHAIKH</span>
-          <span class="text-[10px] uppercase font-mono tracking-widest text-maroon-300">Post-Production • Editor</span>
+          <span class="font-heading font-black tracking-tight text-base sm:text-lg text-slate-900 group-hover:text-maroon-800 transition-colors">
+            HYDER <span class="text-maroon-700">SHAIKH</span>
+          </span>
+          <span class="text-[10px] uppercase font-mono tracking-widest text-maroon-800 font-bold">
+            Video Editor • Colorist
+          </span>
         </div>
       </a>
 
-      <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-white/80">
-        <a href="#work" class="hover:text-white transition-colors py-1 relative hover-underline">Selected Work</a>
-        <a href="#colorgrade" class="hover:text-white transition-colors py-1 relative hover-underline">Color Suite</a>
-        <a href="#timeline" class="hover:text-white transition-colors py-1 relative hover-underline">Arsenal</a>
-        <a href="#process" class="hover:text-white transition-colors py-1 relative hover-underline">Workflow</a>
-        <a href="#pricing" class="hover:text-white transition-colors py-1 relative hover-underline">Packages</a>
-        <a href="#reviews" class="hover:text-white transition-colors py-1 relative hover-underline">Reviews</a>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
+        <a href="#work" class="nav-link hover:text-maroon-900 transition-colors">Featured Work</a>
+        <a href="#colorgrade" class="nav-link hover:text-maroon-900 transition-colors">Color Science</a>
+        <a href="#timeline" class="nav-link hover:text-maroon-900 transition-colors">Suite & Arsenal</a>
+        <a href="#process" class="nav-link hover:text-maroon-900 transition-colors">Workflow</a>
+        <a href="#pricing" class="nav-link hover:text-maroon-900 transition-colors">Rates</a>
+        <a href="#reviews" class="nav-link hover:text-maroon-900 transition-colors">Reviews</a>
       </nav>
 
-      <!-- Action & Sound CTA -->
-      <div class="hidden sm:flex items-center gap-4">
-        <!-- Audio Effects Toggle -->
-        <button id="sfx-toggle" aria-label="Toggle sound effects" class="w-9 h-9 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-white/80 hover:text-white hover:border-white/40 transition-all hover:bg-maroon-800/40" title="Audio FX On/Off">
+      <!-- Action CTAs -->
+      <div class="hidden sm:flex items-center gap-3">
+        <!-- Audio FX Toggle -->
+        <button id="sfx-toggle" aria-label="Toggle sound effects" class="w-9 h-9 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-maroon-800 hover:border-maroon-300 transition-all hover:bg-maroon-50" title="Audio FX Mute/Unmute">
           <i class="ph ph-speaker-simple-high text-lg" id="sfx-icon"></i>
         </button>
 
-        <a href="#contact" class="relative group overflow-hidden px-5 py-2.5 rounded-full bg-white text-maroon-950 font-semibold text-xs tracking-wider uppercase transition-all duration-300 hover:shadow-lg hover:shadow-white/20 active:scale-95 flex items-center gap-2">
-          <span>Book A Project</span>
-          <i class="ph ph-arrow-up-right font-bold text-sm group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+        <!-- Primary Action Button: Velvet Maroon -->
+        <a href="#contact" class="btn-maroon-shimmer text-white px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-maroon-900/15">
+          <span>Book Project</span>
+          <i class="ph-bold ph-arrow-up-right text-sm"></i>
         </a>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-white text-2xl p-2 focus:outline-none" aria-label="Open Menu">
+      <button id="mobile-menu-btn" class="md:hidden text-slate-900 text-2xl p-2 focus:outline-none" aria-label="Open navigation menu">
         <i class="ph ph-list" id="menu-icon"></i>
       </button>
 
     </div>
 
-    <!-- Mobile Nav Menu Dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden max-w-7xl mx-auto pt-4 pb-6 px-4 flex flex-col gap-4 border-t border-white/10 mt-3 animate-fadeIn">
-      <a href="#work" class="text-white/90 hover:text-white text-base py-1">Selected Work</a>
-      <a href="#colorgrade" class="text-white/90 hover:text-white text-base py-1">Color Grading</a>
-      <a href="#timeline" class="text-white/90 hover:text-white text-base py-1">Arsenal</a>
-      <a href="#process" class="text-white/90 hover:text-white text-base py-1">Workflow</a>
-      <a href="#pricing" class="text-white/90 hover:text-white text-base py-1">Packages</a>
-      <a href="#reviews" class="text-white/90 hover:text-white text-base py-1">Client Reviews</a>
-      <a href="#contact" class="text-center w-full py-3 bg-white text-maroon-950 font-bold rounded-xl text-sm uppercase">Get In Touch</a>
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden max-w-7xl mx-auto pt-4 pb-6 px-4 flex flex-col gap-3.5 border-t border-slate-200 mt-3 animate-fadeIn bg-white rounded-2xl shadow-xl">
+      <a href="#work" class="text-slate-800 font-semibold hover:text-maroon-800 py-1">Featured Work</a>
+      <a href="#colorgrade" class="text-slate-800 font-semibold hover:text-maroon-800 py-1">Color Grading</a>
+      <a href="#timeline" class="text-slate-800 font-semibold hover:text-maroon-800 py-1">Arsenal & Skills</a>
+      <a href="#process" class="text-slate-800 font-semibold hover:text-maroon-800 py-1">Workflow</a>
+      <a href="#pricing" class="text-slate-800 font-semibold hover:text-maroon-800 py-1">Packages & Calculator</a>
+      <a href="#reviews" class="text-slate-800 font-semibold hover:text-maroon-800 py-1">Client Testimonials</a>
+      <a href="#contact" class="text-center w-full py-3 bg-maroon-900 text-white font-bold rounded-xl text-xs uppercase tracking-wider">Book A Project</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="hero" class="relative min-h-screen pt-32 pb-20 px-6 md:px-12 flex flex-col justify-center max-w-7xl mx-auto">
+  <section id="hero" class="relative min-h-[92vh] pt-36 pb-20 px-6 md:px-12 max-w-7xl mx-auto flex flex-col justify-center">
     
-    <!-- Top Availability Pill -->
-    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-maroon-900/60 border border-maroon-500/30 text-maroon-200 text-xs font-mono mb-6 w-fit backdrop-blur-md">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-      <span class="w-2 h-2 rounded-full bg-emerald-400 -ml-4"></span>
-      <span>AVAILABLE FOR HIGH-IMPACT COMMISSIONS • 2026</span>
+    <!-- Verified Availability Pill -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-maroon-50 border border-maroon-200/80 text-maroon-900 text-xs font-mono mb-6 w-fit shadow-xs">
+      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+      <span class="w-2 h-2 rounded-full bg-emerald-500 -ml-3.5"></span>
+      <span class="font-bold tracking-wide">AVAILABLE FOR SELECT COMMISSIONS • 2026</span>
     </div>
 
-    <!-- Hero Main Typography -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Hero Column -->
       <div class="lg:col-span-7">
-        <h1 class="font-heading font-extrabold text-4xl sm:text-6xl md:text-7xl leading-[1.08] tracking-tight text-white mb-6">
-          TURNING RAW FOOTAGE INTO 
-          <span class="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-white via-maroon-100 to-maroon-300">
+        <h1 class="font-heading font-black text-4xl sm:text-6xl md:text-7xl leading-[1.08] tracking-tight text-slate-900 mb-6">
+          TRANSFORMING RAW CLIPS INTO 
+          <span class="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-maroon-900 via-maroon-700 to-rose-600">
             CINEMATIC
           </span>
           <br class="hidden sm:inline">
-          <span class="italic font-light text-maroon-300">VIRAL REALITY.</span>
+          <span class="italic font-light text-maroon-800">VIRAL REALITY.</span>
         </h1>
 
-        <p class="text-base sm:text-lg text-white/75 font-normal max-w-2xl leading-relaxed mb-8">
-          I am <span class="text-white font-semibold">Hyder Shaikh</span> — a senior video editor, colorist, and motion designer. I craft high-retention content that hooks viewers within 3 seconds, skyrockets watch-time, and scales brands into industry leaders.
+        <p class="text-base sm:text-lg text-slate-600 font-normal max-w-2xl leading-relaxed mb-8">
+          I'm <span class="text-slate-900 font-bold">Hyder Shaikh</span> — a senior video editor, colorist, and motion designer. I engineer retention-driven narratives, surgical sound design, and Hollywood film emulation that turn casual viewers into loyal audiences.
         </p>
 
-        <!-- CTA Action Buttons -->
+        <!-- CTA Buttons -->
         <div class="flex flex-wrap items-center gap-4 mb-10">
-          <button onclick="openVideoModal('showreel')" class="px-7 py-3.5 rounded-full bg-white text-maroon-950 hover:bg-maroon-100 font-bold text-sm tracking-wide transition-all shadow-xl shadow-white/10 hover:shadow-maroon-500/25 flex items-center gap-3 group active:scale-95">
-            <div class="w-7 h-7 rounded-full bg-maroon-900 text-white flex items-center justify-center group-hover:scale-110 transition-transform">
+          <button onclick="openVideoModal('showreel')" class="btn-maroon-shimmer px-7 py-3.5 rounded-full text-white font-bold text-sm tracking-wide transition-all flex items-center gap-3 group active:scale-95 shadow-xl shadow-maroon-900/20">
+            <div class="w-7 h-7 rounded-full bg-white text-maroon-900 flex items-center justify-center group-hover:scale-110 transition-transform">
               <i class="ph-fill ph-play text-xs ml-0.5"></i>
             </div>
             <span>Watch 2026 Showreel</span>
           </button>
 
-          <a href="#work" class="px-7 py-3.5 rounded-full bg-maroon-900/40 hover:bg-maroon-900/80 border border-white/20 text-white font-semibold text-sm tracking-wide transition-all hover:border-white/50 flex items-center gap-2">
+          <a href="#work" class="px-7 py-3.5 rounded-full bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-bold text-sm tracking-wide transition-all hover:border-maroon-400 hover:text-maroon-900 flex items-center gap-2 shadow-xs">
             <span>Explore Projects</span>
             <i class="ph ph-arrow-down text-base"></i>
           </a>
         </div>
 
-        <!-- Quick Stats Strip -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/10">
+        <!-- Metrics Strip -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 pt-8 border-t border-slate-200">
           <div>
-            <div class="font-heading font-black text-2xl sm:text-3xl text-white">150M+</div>
-            <div class="text-xs font-mono uppercase tracking-wider text-maroon-300/90 mt-1">Total Views</div>
+            <div class="font-heading font-black text-2xl sm:text-3xl text-maroon-900">150M+</div>
+            <div class="text-xs font-mono uppercase tracking-wider text-slate-500 mt-1 font-semibold">Total Views</div>
           </div>
           <div>
-            <div class="font-heading font-black text-2xl sm:text-3xl text-white">450+</div>
-            <div class="text-xs font-mono uppercase tracking-wider text-maroon-300/90 mt-1">Edits Delivered</div>
+            <div class="font-heading font-black text-2xl sm:text-3xl text-maroon-900">450+</div>
+            <div class="text-xs font-mono uppercase tracking-wider text-slate-500 mt-1 font-semibold">Videos Cut</div>
           </div>
           <div>
-            <div class="font-heading font-black text-2xl sm:text-3xl text-white">99.4%</div>
-            <div class="text-xs font-mono uppercase tracking-wider text-maroon-300/90 mt-1">Retention Score</div>
+            <div class="font-heading font-black text-2xl sm:text-3xl text-maroon-900">99.4%</div>
+            <div class="text-xs font-mono uppercase tracking-wider text-slate-500 mt-1 font-semibold">Retention Rate</div>
           </div>
           <div>
-            <div class="font-heading font-black text-2xl sm:text-3xl text-white">4K HDR</div>
-            <div class="text-xs font-mono uppercase tracking-wider text-maroon-300/90 mt-1">Master Delivery</div>
+            <div class="font-heading font-black text-2xl sm:text-3xl text-maroon-900">4K HDR</div>
+            <div class="text-xs font-mono uppercase tracking-wider text-slate-500 mt-1 font-semibold">Master Delivery</div>
           </div>
         </div>
+
       </div>
 
-      <!-- Hero Visual: Cinematic Reel Mockup -->
+      <!-- Right Hero Column: Video Frame Mockup -->
       <div class="lg:col-span-5 relative">
-        <div class="relative rounded-3xl p-3 bg-gradient-to-b from-white/20 via-maroon-700/20 to-white/5 border border-white/20 backdrop-blur-xl shadow-2xl shadow-maroon-950/80 group">
+        <div class="relative rounded-3xl p-3 bg-white border border-slate-200/90 shadow-2xl shadow-maroon-950/10 luxury-card group">
           
-          <!-- Screen Frame -->
-          <div class="relative rounded-2xl overflow-hidden aspect-[16/10] bg-maroon-900/80 cursor-pointer" onclick="openVideoModal('showreel')">
-            <!-- Simulated Video Poster -->
-            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1200&q=80" alt="Hyder Shaikh Showreel Cover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-90 contrast-110">
+          <div class="relative rounded-2xl overflow-hidden aspect-[16/10] bg-slate-900 cursor-pointer" onclick="openVideoModal('showreel')">
+            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1200&q=80" alt="Showreel Cover by Hyder Shaikh" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95">
             
-            <!-- Maroon Vignette Gradient -->
-            <div class="absolute inset-0 bg-gradient-to-t from-maroon-950/90 via-maroon-900/30 to-black/30"></div>
+            <!-- Vignette Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20"></div>
 
-            <!-- Timecode & Status Badge -->
-            <div class="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-md bg-black/60 border border-white/20 backdrop-blur-md">
+            <!-- Timecode & Status -->
+            <div class="absolute top-3.5 left-3.5 flex items-center gap-2 px-3 py-1 rounded-md bg-black/60 border border-white/20 backdrop-blur-md">
               <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
               <span class="text-[11px] font-mono tracking-widest text-white">REC • 00:02:45:18</span>
             </div>
 
-            <div class="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-maroon-800/80 border border-white/20 text-[10px] font-mono tracking-wider text-white">
+            <div class="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-md bg-maroon-800/90 border border-white/20 text-[10px] font-mono tracking-wider text-white font-bold">
               PRORES 422 HQ
             </div>
 
-            <!-- Central Big Play Button -->
-            <div class="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white text-maroon-950 flex items-center justify-center text-2xl shadow-2xl shadow-maroon-900/80 group-hover:scale-110 transition-transform duration-300">
-                <i class="ph-fill ph-play ml-1"></i>
+            <!-- Big Central Play Button -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center gap-2.5">
+              <div class="w-16 h-16 rounded-full bg-maroon-800 text-white flex items-center justify-center text-2xl shadow-xl shadow-maroon-900/60 group-hover:scale-110 transition-transform duration-300 border-2 border-white">
+                <i class="ph-fill ph-play ml-0.5"></i>
               </div>
-              <span class="text-xs font-mono uppercase tracking-widest text-white font-semibold bg-black/60 px-3 py-1 rounded-full border border-white/20">Click To Play Reel</span>
+              <span class="text-[11px] font-mono uppercase tracking-widest text-white font-bold bg-black/60 px-3 py-1 rounded-full border border-white/20 backdrop-blur-sm">Click To Play Reel</span>
             </div>
 
-            <!-- Bottom Video Details Bar -->
+            <!-- Bottom Frame Bar -->
             <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-white/90 text-xs font-mono">
               <div class="flex items-center gap-2">
-                <i class="ph ph-waveform text-maroon-300 text-base animate-pulse"></i>
+                <i class="ph ph-waveform text-rose-300 text-base animate-pulse"></i>
                 <span>48kHz 24-Bit Dolby Master</span>
               </div>
               <span>4K 60FPS</span>
             </div>
           </div>
 
-          <!-- Floating Badge Overlay -->
-          <div class="absolute -bottom-5 -left-5 bg-maroon-900 border border-white/20 rounded-2xl p-4 shadow-xl backdrop-blur-lg flex items-center gap-3 hidden sm:flex">
-            <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-maroon-600 to-rose-400 flex items-center justify-center text-white text-xl">
+          <!-- Floating Badge -->
+          <div class="absolute -bottom-5 -left-5 bg-white border border-slate-200/90 rounded-2xl p-4 shadow-xl flex items-center gap-3 hidden sm:flex animate-float-gentle">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-maroon-800 to-rose-500 flex items-center justify-center text-white text-xl shadow-sm">
               <i class="ph-bold ph-trend-up"></i>
             </div>
             <div>
-              <div class="text-xs text-white/70 font-mono">AVG. RETENTION BOOST</div>
-              <div class="text-lg font-heading font-black text-white">+84.6% Watch Time</div>
+              <div class="text-[10px] text-slate-500 font-mono font-bold uppercase">Average Watch-Time</div>
+              <div class="text-base font-heading font-black text-maroon-900">+84.6% Retention</div>
             </div>
           </div>
 
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Marquee Film Strip Ticker -->
-  <div class="w-full py-4 bg-maroon-900/50 border-y border-white/10 overflow-hidden relative backdrop-blur-md">
-    <div class="flex whitespace-nowrap animate-marquee items-center gap-8 text-xs sm:text-sm font-mono tracking-widest uppercase text-white/90">
-      <span class="flex items-center gap-3"><i class="ph-fill ph-film-strip text-maroon-400"></i> PREMIERE PRO MASTER</span>
-      <span class="text-maroon-400/50">•</span>
-      <span class="flex items-center gap-3"><i class="ph-fill ph-sparkle text-maroon-400"></i> DAVINCI RESOLVE COLORIST</span>
-      <span class="text-maroon-400/50">•</span>
-      <span class="flex items-center gap-3"><i class="ph-fill ph-lightning text-maroon-400"></i> AFTER EFFECTS MOTION</span>
-      <span class="text-maroon-400/50">•</span>
-      <span class="flex items-center gap-3"><i class="ph-fill ph-waveform text-maroon-400"></i> CINEMATIC SOUND DESIGN</span>
-      <span class="text-maroon-400/50">•</span>
-      <span class="flex items-center gap-3"><i class="ph-fill ph-chart-line-up text-maroon-400"></i> VIRAL RETENTION PACING</span>
-      <span class="text-maroon-400/50">•</span>
-      <span class="flex items-center gap-3"><i class="ph-fill ph-aperture text-maroon-400"></i> 4K PRORES DELIVERY</span>
-      <span class="text-maroon-400/50">•</span>
+  <!-- Marquee Ticker Strip (White background with Maroon Accents) -->
+  <div class="w-full py-4 bg-white border-y border-slate-200/90 overflow-hidden relative shadow-xs">
+    <div class="flex whitespace-nowrap animate-marquee items-center gap-8 text-xs sm:text-sm font-mono tracking-widest uppercase text-slate-700 font-bold">
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-film-strip text-maroon-700"></i> PREMIERE PRO MASTER</span>
+      <span class="text-slate-300">•</span>
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-sparkle text-maroon-700"></i> DAVINCI RESOLVE COLORIST</span>
+      <span class="text-slate-300">•</span>
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-lightning text-maroon-700"></i> AFTER EFFECTS MOTION VFX</span>
+      <span class="text-slate-300">•</span>
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-waveform text-maroon-700"></i> FOLEY SOUND ENGINEERING</span>
+      <span class="text-slate-300">•</span>
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-chart-line-up text-maroon-700"></i> VIRAL RETENTION PACING</span>
+      <span class="text-slate-300">•</span>
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-aperture text-maroon-700"></i> KODAK 2383 FILM LOOKS</span>
+      <span class="text-slate-300">•</span>
       <!-- Duplicate for loop -->
-      <span class="flex items-center gap-3"><i class="ph-fill ph-film-strip text-maroon-400"></i> PREMIERE PRO MASTER</span>
-      <span class="text-maroon-400/50">•</span>
-      <span class="flex items-center gap-3"><i class="ph-fill ph-sparkle text-maroon-400"></i> DAVINCI RESOLVE COLORIST</span>
-      <span class="text-maroon-400/50">•</span>
-      <span class="flex items-center gap-3"><i class="ph-fill ph-lightning text-maroon-400"></i> AFTER EFFECTS MOTION</span>
-      <span class="text-maroon-400/50">•</span>
-      <span class="flex items-center gap-3"><i class="ph-fill ph-waveform text-maroon-400"></i> CINEMATIC SOUND DESIGN</span>
-      <span class="text-maroon-400/50">•</span>
-      <span class="flex items-center gap-3"><i class="ph-fill ph-chart-line-up text-maroon-400"></i> VIRAL RETENTION PACING</span>
-      <span class="text-maroon-400/50">•</span>
-      <span class="flex items-center gap-3"><i class="ph-fill ph-aperture text-maroon-400"></i> 4K PRORES DELIVERY</span>
-      <span class="text-maroon-400/50">•</span>
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-film-strip text-maroon-700"></i> PREMIERE PRO MASTER</span>
+      <span class="text-slate-300">•</span>
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-sparkle text-maroon-700"></i> DAVINCI RESOLVE COLORIST</span>
+      <span class="text-slate-300">•</span>
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-lightning text-maroon-700"></i> AFTER EFFECTS MOTION VFX</span>
+      <span class="text-slate-300">•</span>
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-waveform text-maroon-700"></i> FOLEY SOUND ENGINEERING</span>
+      <span class="text-slate-300">•</span>
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-chart-line-up text-maroon-700"></i> VIRAL RETENTION PACING</span>
+      <span class="text-slate-300">•</span>
+      <span class="flex items-center gap-2 text-maroon-900"><i class="ph-fill ph-aperture text-maroon-700"></i> KODAK 2383 FILM LOOKS</span>
+      <span class="text-slate-300">•</span>
     </div>
   </div>
 
-  <!-- Selected Portfolio Section -->
+  <!-- Featured Works Section -->
   <section id="work" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal-on-scroll">
       <div>
-        <div class="text-maroon-300 text-xs font-mono uppercase tracking-widest mb-2 flex items-center gap-2">
+        <div class="text-maroon-800 text-xs font-mono uppercase tracking-widest mb-2 flex items-center gap-2 font-bold">
           <i class="ph ph-video-camera text-base"></i>
-          PORTFOLIO ARCHIVE
+          FEATURED REEL ARCHIVE
         </div>
-        <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white">
-          SELECTED <span class="italic text-maroon-300 font-light">WORKS</span>
+        <h2 class="font-heading font-black text-3xl sm:text-5xl text-slate-900">
+          SELECTED <span class="italic text-maroon-800 font-light">WORKS</span>
         </h2>
       </div>
 
-      <!-- Filter Buttons -->
-      <div class="flex flex-wrap gap-2 p-1.5 bg-maroon-900/40 border border-white/10 rounded-2xl backdrop-blur-md" id="filter-container">
+      <!-- Filter Tabs in Maroon / White -->
+      <div class="flex flex-wrap gap-2 p-1.5 bg-slate-100 border border-slate-200 rounded-2xl" id="filter-container">
         <button class="filter-btn active px-4 py-2 rounded-xl text-xs font-medium transition-all" data-filter="all">All Projects</button>
-        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-all" data-filter="commercial">Commercials</button>
-        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-all" data-filter="youtube">YouTube Long-Form</button>
-        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-all" data-filter="reels">Shorts & Reels</button>
-        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-medium text-white/70 hover:text-white transition-all" data-filter="color">Color Grading</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-600 hover:text-maroon-900 transition-all" data-filter="commercial">Commercials</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-600 hover:text-maroon-900 transition-all" data-filter="youtube">YouTube Long-Form</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-600 hover:text-maroon-900 transition-all" data-filter="reels">Shorts & Reels</button>
+        <button class="filter-btn px-4 py-2 rounded-xl text-xs font-medium text-slate-600 hover:text-maroon-900 transition-all" data-filter="color">Color Grading</button>
       </div>
     </div>
 
@@ -320,46 +320,45 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
       
       <!-- Project 1: Commercial -->
-      <div class="project-card group rounded-3xl overflow-hidden bg-gradient-to-b from-white/10 to-maroon-950/80 border border-white/15 hover:border-maroon-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-maroon-900/60" data-category="commercial">
+      <div class="project-card luxury-card rounded-3xl overflow-hidden group border border-slate-200" data-category="commercial">
         <div class="relative aspect-video overflow-hidden cursor-pointer" onclick="openVideoModal('commercial1')">
-          <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80" alt="Aura Nocturne Watch Commercial" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95">
-          <div class="absolute inset-0 bg-gradient-to-t from-maroon-950 via-transparent to-transparent opacity-80"></div>
+          <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80" alt="Chronos Luxury Watch Commercial" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-70"></div>
           
-          <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 border border-white/20 text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-md">
+          <div class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 text-slate-900 text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm">
             Commercial • TVC
           </div>
           
-          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-[10px] font-mono">
+          <div class="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-300 text-[10px] font-mono font-bold shadow-xs">
             +4.2M Views
           </div>
 
-          <!-- Play button hover effect -->
           <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-14 h-14 rounded-full bg-white text-maroon-950 flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
+            <div class="w-14 h-14 rounded-full bg-maroon-800 text-white flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
               <i class="ph-fill ph-play ml-0.5"></i>
             </div>
           </div>
         </div>
 
         <div class="p-6">
-          <div class="flex items-center justify-between text-xs font-mono text-maroon-300 mb-2">
+          <div class="flex items-center justify-between text-xs font-mono text-maroon-800 font-bold mb-2">
             <span>Client: Chronos Luxury Group</span>
             <span>4K 60FPS</span>
           </div>
-          <h3 class="font-heading font-bold text-xl text-white group-hover:text-maroon-200 transition-colors mb-2">
+          <h3 class="font-heading font-black text-xl text-slate-900 group-hover:text-maroon-800 transition-colors mb-2">
             Chronos "Obsidian Horizon"
           </h3>
-          <p class="text-white/70 text-xs line-clamp-2 leading-relaxed mb-4">
+          <p class="text-slate-600 text-xs line-clamp-2 leading-relaxed mb-4">
             30-second high-energy luxury watch launch TV commercial featuring 3D camera tracking, custom foley sound design, and deep velvet color grading.
           </p>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10">
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">Premiere</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">After Effects</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">DaVinci</span>
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">Premiere</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">After Effects</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-maroon-50 text-maroon-800 font-medium">DaVinci</span>
             </div>
-            <button onclick="openVideoModal('commercial1')" class="text-white hover:text-maroon-300 text-xs font-mono flex items-center gap-1">
+            <button onclick="openVideoModal('commercial1')" class="text-maroon-800 hover:text-maroon-600 text-xs font-mono font-bold flex items-center gap-1">
               Watch <i class="ph ph-arrow-right"></i>
             </button>
           </div>
@@ -367,45 +366,45 @@
       </div>
 
       <!-- Project 2: YouTube Long-Form -->
-      <div class="project-card group rounded-3xl overflow-hidden bg-gradient-to-b from-white/10 to-maroon-950/80 border border-white/15 hover:border-maroon-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-maroon-900/60" data-category="youtube">
+      <div class="project-card luxury-card rounded-3xl overflow-hidden group border border-slate-200" data-category="youtube">
         <div class="relative aspect-video overflow-hidden cursor-pointer" onclick="openVideoModal('youtube1')">
-          <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="Documentary Style YouTube Video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95">
-          <div class="absolute inset-0 bg-gradient-to-t from-maroon-950 via-transparent to-transparent opacity-80"></div>
+          <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80" alt="Documentary Style YouTube Video" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-70"></div>
           
-          <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 border border-white/20 text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-md">
+          <div class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 text-slate-900 text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm">
             Documentary Long-Form
           </div>
           
-          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-rose-500/20 border border-rose-400/30 text-rose-300 text-[10px] font-mono">
-            82% Retention (22 Min)
+          <div class="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-md bg-rose-50 text-maroon-800 border border-maroon-200 text-[10px] font-mono font-bold shadow-xs">
+            82% Retention (22m)
           </div>
 
           <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-14 h-14 rounded-full bg-white text-maroon-950 flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
+            <div class="w-14 h-14 rounded-full bg-maroon-800 text-white flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
               <i class="ph-fill ph-play ml-0.5"></i>
             </div>
           </div>
         </div>
 
         <div class="p-6">
-          <div class="flex items-center justify-between text-xs font-mono text-maroon-300 mb-2">
+          <div class="flex items-center justify-between text-xs font-mono text-maroon-800 font-bold mb-2">
             <span>Magnates Media Style</span>
             <span>1.8M Views</span>
           </div>
-          <h3 class="font-heading font-bold text-xl text-white group-hover:text-maroon-200 transition-colors mb-2">
+          <h3 class="font-heading font-black text-xl text-slate-900 group-hover:text-maroon-800 transition-colors mb-2">
             The Rise & Fall of Fast Fashion
           </h3>
-          <p class="text-white/70 text-xs line-clamp-2 leading-relaxed mb-4">
+          <p class="text-slate-600 text-xs line-clamp-2 leading-relaxed mb-4">
             Investigative YouTube documentary with 2.5D parallax map animations, vintage newspaper textures, newspaper zooms, and heart-pounding orchestral pacing.
           </p>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10">
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">Photoshop</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">After Effects</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">Premiere</span>
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">Photoshop</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">After Effects</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-maroon-50 text-maroon-800 font-medium">Premiere</span>
             </div>
-            <button onclick="openVideoModal('youtube1')" class="text-white hover:text-maroon-300 text-xs font-mono flex items-center gap-1">
+            <button onclick="openVideoModal('youtube1')" class="text-maroon-800 hover:text-maroon-600 text-xs font-mono font-bold flex items-center gap-1">
               Watch <i class="ph ph-arrow-right"></i>
             </button>
           </div>
@@ -413,45 +412,45 @@
       </div>
 
       <!-- Project 3: Viral Short-Form Reels -->
-      <div class="project-card group rounded-3xl overflow-hidden bg-gradient-to-b from-white/10 to-maroon-950/80 border border-white/15 hover:border-maroon-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-maroon-900/60" data-category="reels">
+      <div class="project-card luxury-card rounded-3xl overflow-hidden group border border-slate-200" data-category="reels">
         <div class="relative aspect-video overflow-hidden cursor-pointer" onclick="openVideoModal('reels1')">
-          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80" alt="Viral Reels Pacing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95">
-          <div class="absolute inset-0 bg-gradient-to-t from-maroon-950 via-transparent to-transparent opacity-80"></div>
+          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80" alt="Viral Reels Pacing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-70"></div>
           
-          <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 border border-white/20 text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-md">
+          <div class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 text-slate-900 text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm">
             Shorts & TikTok
           </div>
           
-          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-amber-500/20 border border-amber-400/30 text-amber-300 text-[10px] font-mono">
-            35M+ Total Campaign Views
+          <div class="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-300 text-[10px] font-mono font-bold shadow-xs">
+            35M+ Total Views
           </div>
 
           <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-14 h-14 rounded-full bg-white text-maroon-950 flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
+            <div class="w-14 h-14 rounded-full bg-maroon-800 text-white flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
               <i class="ph-fill ph-play ml-0.5"></i>
             </div>
           </div>
         </div>
 
         <div class="p-6">
-          <div class="flex items-center justify-between text-xs font-mono text-maroon-300 mb-2">
-            <span>9:16 Vertical Video Suite</span>
+          <div class="flex items-center justify-between text-xs font-mono text-maroon-800 font-bold mb-2">
+            <span>9:16 Vertical Suite</span>
             <span>Hormozi / Ali Style</span>
           </div>
-          <h3 class="font-heading font-bold text-xl text-white group-hover:text-maroon-200 transition-colors mb-2">
-            SaaS Founder Viral Hook Campaign
+          <h3 class="font-heading font-black text-xl text-slate-900 group-hover:text-maroon-800 transition-colors mb-2">
+            SaaS Founder Viral Hook Suite
           </h3>
-          <p class="text-white/70 text-xs line-clamp-2 leading-relaxed mb-4">
+          <p class="text-slate-600 text-xs line-clamp-2 leading-relaxed mb-4">
             30 rapid-fire short-form videos with custom animated emojis, kinetic typography, b-roll sound whooshes, and pop-in sound effects leading to 45k new followers.
           </p>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10">
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">CapCut Pro</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">Premiere</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">Audition</span>
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">CapCut Pro</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">Premiere</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-maroon-50 text-maroon-800 font-medium">Audition</span>
             </div>
-            <button onclick="openVideoModal('reels1')" class="text-white hover:text-maroon-300 text-xs font-mono flex items-center gap-1">
+            <button onclick="openVideoModal('reels1')" class="text-maroon-800 hover:text-maroon-600 text-xs font-mono font-bold flex items-center gap-1">
               Watch <i class="ph ph-arrow-right"></i>
             </button>
           </div>
@@ -459,44 +458,44 @@
       </div>
 
       <!-- Project 4: Color Grading Master -->
-      <div class="project-card group rounded-3xl overflow-hidden bg-gradient-to-b from-white/10 to-maroon-950/80 border border-white/15 hover:border-maroon-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-maroon-900/60" data-category="color">
+      <div class="project-card luxury-card rounded-3xl overflow-hidden group border border-slate-200" data-category="color">
         <div class="relative aspect-video overflow-hidden cursor-pointer" onclick="openVideoModal('color1')">
-          <img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&w=800&q=80" alt="Cinematic Film Color Grading" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95">
-          <div class="absolute inset-0 bg-gradient-to-t from-maroon-950 via-transparent to-transparent opacity-80"></div>
+          <img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&w=800&q=80" alt="Cinematic Film Color Grading" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-70"></div>
           
-          <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 border border-white/20 text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-md">
+          <div class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 text-slate-900 text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm">
             Film Grade • S-Log3
           </div>
           
-          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-[10px] font-mono">
-            Kodak 2383 Emulation
+          <div class="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-md bg-indigo-50 text-indigo-800 border border-indigo-300 text-[10px] font-mono font-bold shadow-xs">
+            Kodak 2383 Film Look
           </div>
 
           <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-14 h-14 rounded-full bg-white text-maroon-950 flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
+            <div class="w-14 h-14 rounded-full bg-maroon-800 text-white flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
               <i class="ph-fill ph-play ml-0.5"></i>
             </div>
           </div>
         </div>
 
         <div class="p-6">
-          <div class="flex items-center justify-between text-xs font-mono text-maroon-300 mb-2">
-            <span>Indie Short Film</span>
+          <div class="flex items-center justify-between text-xs font-mono text-maroon-800 font-bold mb-2">
+            <span>Indie Feature Pass</span>
             <span>DaVinci Studio</span>
           </div>
-          <h3 class="font-heading font-bold text-xl text-white group-hover:text-maroon-200 transition-colors mb-2">
+          <h3 class="font-heading font-black text-xl text-slate-900 group-hover:text-maroon-800 transition-colors mb-2">
             "Echoes of Neon" - Cyber Noir
           </h3>
-          <p class="text-white/70 text-xs line-clamp-2 leading-relaxed mb-4">
+          <p class="text-slate-600 text-xs line-clamp-2 leading-relaxed mb-4">
             Full color pass transforming flat Sony FX6 footage into a moody, filmic cyberpunk aesthetic with warm skin tones, teal shadows, and halation bloom.
           </p>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10">
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">DaVinci Resolve</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">Dehancer Pro</span>
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-maroon-50 text-maroon-800 font-medium">DaVinci Studio</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">Dehancer Pro</span>
             </div>
-            <button onclick="openVideoModal('color1')" class="text-white hover:text-maroon-300 text-xs font-mono flex items-center gap-1">
+            <button onclick="openVideoModal('color1')" class="text-maroon-800 hover:text-maroon-600 text-xs font-mono font-bold flex items-center gap-1">
               Watch <i class="ph ph-arrow-right"></i>
             </button>
           </div>
@@ -504,45 +503,44 @@
       </div>
 
       <!-- Project 5: Music Video -->
-      <div class="project-card group rounded-3xl overflow-hidden bg-gradient-to-b from-white/10 to-maroon-950/80 border border-white/15 hover:border-maroon-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-maroon-900/60" data-category="commercial">
+      <div class="project-card luxury-card rounded-3xl overflow-hidden group border border-slate-200" data-category="commercial">
         <div class="relative aspect-video overflow-hidden cursor-pointer" onclick="openVideoModal('music1')">
-          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Music Video Production" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95">
-          <div class="absolute inset-0 bg-gradient-to-t from-maroon-950 via-transparent to-transparent opacity-80"></div>
+          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Music Video Production" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-70"></div>
           
-          <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 border border-white/20 text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-md">
+          <div class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 text-slate-900 text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm">
             Music Video • Fast Cuts
           </div>
           
-          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-purple-500/20 border border-purple-400/30 text-purple-300 text-[10px] font-mono">
+          <div class="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-md bg-purple-50 text-purple-800 border border-purple-300 text-[10px] font-mono font-bold shadow-xs">
             6.5M Streams
           </div>
 
           <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-14 h-14 rounded-full bg-white text-maroon-950 flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
+            <div class="w-14 h-14 rounded-full bg-maroon-800 text-white flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
               <i class="ph-fill ph-play ml-0.5"></i>
             </div>
           </div>
         </div>
 
         <div class="p-6">
-          <div class="flex items-center justify-between text-xs font-mono text-maroon-300 mb-2">
-            <span>Sony Music Artist</span>
+          <div class="flex items-center justify-between text-xs font-mono text-maroon-800 font-bold mb-2">
+            <span>Sony Music Release</span>
             <span>Beat Synced</span>
           </div>
-          <h3 class="font-heading font-bold text-xl text-white group-hover:text-maroon-200 transition-colors mb-2">
+          <h3 class="font-heading font-black text-xl text-slate-900 group-hover:text-maroon-800 transition-colors mb-2">
             Velvet Mirage - Official Video
           </h3>
-          <p class="text-white/70 text-xs line-clamp-2 leading-relaxed mb-4">
+          <p class="text-slate-600 text-xs line-clamp-2 leading-relaxed mb-4">
             Complex beat-matched rhythmic cutting, seamless match cuts, optical speed ramps, and rotoscoped light flares synced with 130 BPM trap drums.
           </p>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10">
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">Premiere Pro</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">Sapphire FX</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">AE</span>
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">Premiere Pro</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">Sapphire FX</span>
             </div>
-            <button onclick="openVideoModal('music1')" class="text-white hover:text-maroon-300 text-xs font-mono flex items-center gap-1">
+            <button onclick="openVideoModal('music1')" class="text-maroon-800 hover:text-maroon-600 text-xs font-mono font-bold flex items-center gap-1">
               Watch <i class="ph ph-arrow-right"></i>
             </button>
           </div>
@@ -550,45 +548,44 @@
       </div>
 
       <!-- Project 6: Fitness / Brand Promo -->
-      <div class="project-card group rounded-3xl overflow-hidden bg-gradient-to-b from-white/10 to-maroon-950/80 border border-white/15 hover:border-maroon-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-maroon-900/60" data-category="commercial">
+      <div class="project-card luxury-card rounded-3xl overflow-hidden group border border-slate-200" data-category="commercial">
         <div class="relative aspect-video overflow-hidden cursor-pointer" onclick="openVideoModal('fitness1')">
-          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" alt="Athletic Brand Campaign" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-95">
-          <div class="absolute inset-0 bg-gradient-to-t from-maroon-950 via-transparent to-transparent opacity-80"></div>
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" alt="Athletic Brand Campaign" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-70"></div>
           
-          <div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 border border-white/20 text-[10px] font-mono uppercase tracking-wider text-white backdrop-blur-md">
+          <div class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-white/95 text-slate-900 text-[10px] font-mono font-bold uppercase tracking-wider shadow-sm">
             Brand Film • Ad Campaign
           </div>
           
-          <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 text-[10px] font-mono">
+          <div class="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-md bg-cyan-50 text-cyan-800 border border-cyan-300 text-[10px] font-mono font-bold shadow-xs">
             12x ROAS
           </div>
 
           <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div class="w-14 h-14 rounded-full bg-white text-maroon-950 flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
+            <div class="w-14 h-14 rounded-full bg-maroon-800 text-white flex items-center justify-center text-xl shadow-xl transform scale-90 group-hover:scale-100 transition-transform">
               <i class="ph-fill ph-play ml-0.5"></i>
             </div>
           </div>
         </div>
 
         <div class="p-6">
-          <div class="flex items-center justify-between text-xs font-mono text-maroon-300 mb-2">
+          <div class="flex items-center justify-between text-xs font-mono text-maroon-800 font-bold mb-2">
             <span>Apex Apparel Group</span>
-            <span>Conversion Ad</span>
+            <span>Direct Conversion</span>
           </div>
-          <h3 class="font-heading font-bold text-xl text-white group-hover:text-maroon-200 transition-colors mb-2">
-            "Relentless" - High Impact Campaign
+          <h3 class="font-heading font-black text-xl text-slate-900 group-hover:text-maroon-800 transition-colors mb-2">
+            "Relentless" - High Impact Ad
           </h3>
-          <p class="text-white/70 text-xs line-clamp-2 leading-relaxed mb-4">
+          <p class="text-slate-600 text-xs line-clamp-2 leading-relaxed mb-4">
             Aggressive cinematic pacing with heavy impact sound fx, bass drops, seamless speed ramping, and eye-level product framing for maximum purchase conversions.
           </p>
 
-          <div class="flex items-center justify-between pt-4 border-t border-white/10">
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">Premiere</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">DaVinci</span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-white/80">Audition</span>
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">Premiere</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-md bg-maroon-50 text-maroon-800 font-medium">DaVinci</span>
             </div>
-            <button onclick="openVideoModal('fitness1')" class="text-white hover:text-maroon-300 text-xs font-mono flex items-center gap-1">
+            <button onclick="openVideoModal('fitness1')" class="text-maroon-800 hover:text-maroon-600 text-xs font-mono font-bold flex items-center gap-1">
               Watch <i class="ph ph-arrow-right"></i>
             </button>
           </div>
@@ -599,178 +596,177 @@
   </section>
 
   <!-- Interactive Before/After Color Grading Comparison Suite -->
-  <section id="colorgrade" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/10">
-    <div class="text-center max-w-3xl mx-auto mb-14">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-900/60 border border-white/15 text-maroon-300 text-xs font-mono mb-3">
-        <i class="ph-fill ph-paint-brush-broad text-sm"></i>
-        DAVINCI RESOLVE SUITE
+  <section id="colorgrade" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-slate-200">
+    <div class="text-center max-w-3xl mx-auto mb-14 reveal-on-scroll">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-50 border border-maroon-200 text-maroon-900 text-xs font-mono font-bold mb-3">
+        <i class="ph-fill ph-paint-brush-broad text-sm text-maroon-700"></i>
+        DAVINCI RESOLVE COLOR SCIENCE
       </div>
-      <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white mb-4">
-        BEFORE & AFTER: <span class="italic text-maroon-300 font-light">COLOR SCIENCE</span>
+      <h2 class="font-heading font-black text-3xl sm:text-5xl text-slate-900 mb-4">
+        BEFORE & AFTER: <span class="italic text-maroon-800 font-light">FILM EMULATION</span>
       </h2>
-      <p class="text-white/70 text-sm sm:text-base leading-relaxed">
-        Drag the interactive slider below to see how flat, lifeless RAW log footage is transformed into rich, cinematic film print emulation with precision color grading.
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Drag the interactive handle below to see how lifeless flat RAW S-Log3 footage is transformed into rich Kodak 2383 cinematic film print grade with natural skin tones.
       </p>
     </div>
 
-    <!-- The Interactive Slider Container -->
-    <div class="max-w-5xl mx-auto">
-      <div class="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl shadow-maroon-950/90 select-none aspect-[16/9] sm:aspect-[21/9]" id="before-after-container">
+    <!-- The Slider Container (White Frame + Maroon Handle) -->
+    <div class="max-w-5xl mx-auto reveal-on-scroll">
+      <div class="relative rounded-3xl overflow-hidden border border-slate-300 shadow-2xl select-none aspect-[16/9] sm:aspect-[21/9]" id="before-after-container">
         
         <!-- After Image (Color Graded - Background) -->
-        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=80" alt="Color Graded Film Image" class="absolute inset-0 w-full h-full object-cover filter contrast-125 saturate-125" style="filter: contrast(125%) saturate(120%) drop-shadow(0 0 10px rgba(88,15,27,0.4));">
+        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=80" alt="Graded Film Footage" class="absolute inset-0 w-full h-full object-cover" style="filter: contrast(125%) saturate(120%);">
         
         <!-- Badge for Graded -->
-        <div class="absolute top-4 right-4 z-20 px-3 py-1 rounded-lg bg-maroon-900/90 border border-white/30 text-white font-mono text-xs font-bold tracking-wider backdrop-blur-md">
+        <div class="absolute top-4 right-4 z-20 px-3.5 py-1 rounded-lg bg-maroon-900/90 text-white font-mono text-xs font-bold tracking-wider backdrop-blur-md shadow-md border border-white/20">
           AFTER: KODAK 2383 GRADED (REC.709)
         </div>
 
         <!-- Before Image (Flat Log - Clipped Overlay) -->
         <div class="absolute inset-0 overflow-hidden w-1/2 z-10" id="before-clip">
-          <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=80" alt="RAW Log Flat Footage" class="absolute inset-0 w-full h-full object-cover max-w-none" id="before-img" style="filter: grayscale(40%) contrast(65%) brightness(120%) sepia(10%); width: 100%; height: 100%;">
+          <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1600&q=80" alt="Flat RAW S-Log3" class="absolute inset-0 w-full h-full object-cover max-w-none" id="before-img" style="filter: grayscale(40%) contrast(65%) brightness(120%) sepia(10%); width: 100%; height: 100%;">
           
-          <!-- Badge for Before -->
-          <div class="absolute top-4 left-4 z-20 px-3 py-1 rounded-lg bg-black/80 border border-white/30 text-white/80 font-mono text-xs font-bold tracking-wider backdrop-blur-md">
+          <div class="absolute top-4 left-4 z-20 px-3.5 py-1 rounded-lg bg-slate-900/85 text-white font-mono text-xs font-bold tracking-wider backdrop-blur-md shadow-md border border-white/20">
             BEFORE: S-LOG3 RAW FOOTAGE
           </div>
         </div>
 
-        <!-- Drag Handle Line -->
+        <!-- Drag Handle Line with Maroon Knob -->
         <div class="absolute top-0 bottom-0 w-1 bg-white z-30 cursor-ew-resize left-1/2 -ml-0.5 shadow-2xl" id="slider-handle">
-          <div class="absolute top-1/2 -translate-y-1/2 -left-5 w-11 h-11 rounded-full bg-white text-maroon-950 flex items-center justify-center font-bold text-lg shadow-xl shadow-black/50 border-2 border-maroon-900 transition-transform hover:scale-110">
+          <div class="absolute top-1/2 -translate-y-1/2 -left-5 w-11 h-11 rounded-full bg-maroon-800 text-white flex items-center justify-center font-bold text-lg shadow-xl shadow-maroon-950/40 border-2 border-white transition-transform hover:scale-110">
             <i class="ph-bold ph-arrows-left-right text-base"></i>
           </div>
         </div>
 
       </div>
 
-      <!-- Scopes and Technical Metadata Strip -->
+      <!-- Scopes Strip (Clean White Cards) -->
       <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-          <div class="text-[11px] font-mono text-maroon-300">COLOR SPACE</div>
-          <div class="text-white font-heading font-semibold text-sm mt-1">ACEScc / DaVinci YRGB</div>
+        <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <div class="text-[11px] font-mono text-maroon-800 font-bold uppercase">Color Space</div>
+          <div class="text-slate-900 font-heading font-black text-sm mt-1">ACEScc / DaVinci YRGB</div>
         </div>
-        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-          <div class="text-[11px] font-mono text-maroon-300">SKIN TONE RECOVERY</div>
-          <div class="text-white font-heading font-semibold text-sm mt-1">Vectorscope 45° Locked</div>
+        <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <div class="text-[11px] font-mono text-maroon-800 font-bold uppercase">Skin Tone Recovery</div>
+          <div class="text-slate-900 font-heading font-black text-sm mt-1">Vectorscope 45° Lock</div>
         </div>
-        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-          <div class="text-[11px] font-mono text-maroon-300">FILM EMULATION</div>
-          <div class="text-white font-heading font-semibold text-sm mt-1">35mm Halation + Bloom</div>
+        <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <div class="text-[11px] font-mono text-maroon-800 font-bold uppercase">Film Emulation</div>
+          <div class="text-slate-900 font-heading font-black text-sm mt-1">35mm Halation + Grain</div>
         </div>
-        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-          <div class="text-[11px] font-mono text-maroon-300">DYNAMIC RANGE</div>
-          <div class="text-white font-heading font-semibold text-sm mt-1">15+ Stops Preserved</div>
+        <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <div class="text-[11px] font-mono text-maroon-800 font-bold uppercase">Dynamic Range</div>
+          <div class="text-slate-900 font-heading font-black text-sm mt-1">15+ Stops Preserved</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Timeline & Software Arsenal Section -->
-  <section id="timeline" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/10">
+  <!-- Timeline UI & Software Arsenal (White Primary & Maroon Highlights) -->
+  <section id="timeline" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-slate-200">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       
-      <!-- Left side: Software Skills -->
-      <div class="lg:col-span-5">
-        <div class="text-maroon-300 text-xs font-mono uppercase tracking-widest mb-2 flex items-center gap-2">
+      <!-- Left side: Software Proficiency -->
+      <div class="lg:col-span-5 reveal-on-scroll">
+        <div class="text-maroon-800 text-xs font-mono uppercase tracking-widest mb-2 flex items-center gap-2 font-bold">
           <i class="ph ph-cpu text-base"></i>
           TECHNICAL ARSENAL
         </div>
-        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl text-white mb-6">
+        <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 mb-6">
           THE CUTTING SUITE & TOOLKIT
         </h2>
-        <p class="text-white/70 text-sm leading-relaxed mb-8">
-          Mastering modern post-production requires surgical precision across industry-standard NLEs, audio suites, and color pipelines.
+        <p class="text-slate-600 text-sm leading-relaxed mb-8">
+          Surgical precision across industry-standard NLEs, audio suites, and color pipelines to deliver flawless broadcast-quality exports every time.
         </p>
 
-        <!-- Software Meters -->
+        <!-- Software Meters with Maroon Progress Bars -->
         <div class="space-y-4">
           <!-- Adobe Premiere Pro -->
           <div>
             <div class="flex justify-between text-xs font-mono mb-1.5">
-              <span class="flex items-center gap-2 text-white font-semibold">
-                <span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span> Adobe Premiere Pro 2026
+              <span class="flex items-center gap-2 text-slate-900 font-bold">
+                <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span> Adobe Premiere Pro 2026
               </span>
-              <span class="text-maroon-300">99% Master</span>
+              <span class="text-maroon-800 font-bold">99% Master</span>
             </div>
-            <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-              <div class="h-full bg-gradient-to-r from-maroon-600 to-rose-400 rounded-full" style="width: 99%"></div>
+            <div class="w-full h-2 rounded-full bg-slate-200 overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-maroon-900 to-rose-600 rounded-full" style="width: 99%"></div>
             </div>
           </div>
 
           <!-- DaVinci Resolve Studio -->
           <div>
             <div class="flex justify-between text-xs font-mono mb-1.5">
-              <span class="flex items-center gap-2 text-white font-semibold">
-                <span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span> DaVinci Resolve Studio (Color & Fairlight)
+              <span class="flex items-center gap-2 text-slate-900 font-bold">
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span> DaVinci Resolve Studio (Color & Fairlight)
               </span>
-              <span class="text-maroon-300">96% Expert</span>
+              <span class="text-maroon-800 font-bold">96% Expert</span>
             </div>
-            <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-              <div class="h-full bg-gradient-to-r from-maroon-600 to-rose-400 rounded-full" style="width: 96%"></div>
+            <div class="w-full h-2 rounded-full bg-slate-200 overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-maroon-900 to-rose-600 rounded-full" style="width: 96%"></div>
             </div>
           </div>
 
           <!-- After Effects -->
           <div>
             <div class="flex justify-between text-xs font-mono mb-1.5">
-              <span class="flex items-center gap-2 text-white font-semibold">
-                <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span> Adobe After Effects (Motion & VFX)
+              <span class="flex items-center gap-2 text-slate-900 font-bold">
+                <span class="w-2.5 h-2.5 rounded-full bg-indigo-600"></span> Adobe After Effects (Motion & VFX)
               </span>
-              <span class="text-maroon-300">92% Advanced</span>
+              <span class="text-maroon-800 font-bold">92% Advanced</span>
             </div>
-            <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-              <div class="h-full bg-gradient-to-r from-maroon-600 to-rose-400 rounded-full" style="width: 92%"></div>
+            <div class="w-full h-2 rounded-full bg-slate-200 overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-maroon-900 to-rose-600 rounded-full" style="width: 92%"></div>
             </div>
           </div>
 
-          <!-- CapCut Pro / Viral Retargeting -->
+          <!-- CapCut Pro -->
           <div>
             <div class="flex justify-between text-xs font-mono mb-1.5">
-              <span class="flex items-center gap-2 text-white font-semibold">
-                <span class="w-2.5 h-2.5 rounded-full bg-teal-400"></span> CapCut Pro / Vertical Retention
+              <span class="flex items-center gap-2 text-slate-900 font-bold">
+                <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> CapCut Pro / Viral Retargeting
               </span>
-              <span class="text-maroon-300">95% Rapid</span>
+              <span class="text-maroon-800 font-bold">95% Rapid</span>
             </div>
-            <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-              <div class="h-full bg-gradient-to-r from-maroon-600 to-rose-400 rounded-full" style="width: 95%"></div>
+            <div class="w-full h-2 rounded-full bg-slate-200 overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-maroon-900 to-rose-600 rounded-full" style="width: 95%"></div>
             </div>
           </div>
 
           <!-- Audio & Sound Design -->
           <div>
             <div class="flex justify-between text-xs font-mono mb-1.5">
-              <span class="flex items-center gap-2 text-white font-semibold">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Adobe Audition & Foley Engineering
+              <span class="flex items-center gap-2 text-slate-900 font-bold">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span> Adobe Audition & Foley Engineering
               </span>
-              <span class="text-maroon-300">90% Pristine</span>
+              <span class="text-maroon-800 font-bold">90% Pristine</span>
             </div>
-            <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-              <div class="h-full bg-gradient-to-r from-maroon-600 to-rose-400 rounded-full" style="width: 90%"></div>
+            <div class="w-full h-2 rounded-full bg-slate-200 overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-maroon-900 to-rose-600 rounded-full" style="width: 90%"></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Right side: Simulated NLE Multi-Track Timeline UI -->
-      <div class="lg:col-span-7">
-        <div class="rounded-3xl p-5 bg-gradient-to-b from-maroon-900/40 via-maroon-950/90 to-black/80 border border-white/20 backdrop-blur-xl shadow-2xl relative overflow-hidden">
+      <!-- Right side: Multi-Track Timeline UI -->
+      <div class="lg:col-span-7 reveal-on-scroll">
+        <div class="rounded-3xl p-5 bg-white border border-slate-300 shadow-xl relative overflow-hidden">
           
-          <!-- Top bar mimicking Premiere/DaVinci -->
-          <div class="flex items-center justify-between pb-4 border-b border-white/10 text-xs font-mono text-white/80">
+          <!-- Top bar -->
+          <div class="flex items-center justify-between pb-3.5 border-b border-slate-200 text-xs font-mono text-slate-700">
             <div class="flex items-center gap-3">
               <div class="flex gap-1.5">
-                <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                <div class="w-3 h-3 rounded-full bg-amber-400"></div>
+                <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
               </div>
-              <span class="text-white font-semibold">TIMELINE: HYDER_MASTER_CUT_V4_FINAL.prproj</span>
+              <span class="text-slate-900 font-bold">TIMELINE: HYDER_MASTER_V4_PRORES.prproj</span>
             </div>
-            <div class="text-maroon-300">00:03:14:12</div>
+            <div class="text-maroon-800 font-bold">00:03:14:12</div>
           </div>
 
           <!-- Ruler -->
-          <div class="py-2 flex justify-between text-[10px] font-mono text-white/40 border-b border-white/5 select-none">
+          <div class="py-2 flex justify-between text-[10px] font-mono text-slate-400 border-b border-slate-100 select-none">
             <span>00:00:00</span>
             <span>00:01:00</span>
             <span>00:02:00</span>
@@ -778,81 +774,79 @@
             <span>00:04:00</span>
           </div>
 
-          <!-- Simulated Tracks -->
+          <!-- Tracks -->
           <div class="py-4 space-y-2.5">
-            
-            <!-- Video Track 3: Graphics & Subtitles -->
+            <!-- Video Track 3: Graphics -->
             <div class="flex items-center gap-2">
-              <div class="w-12 text-[10px] font-mono text-white/50 text-right pr-2">V3 [FX]</div>
-              <div class="flex-1 h-9 rounded-lg bg-purple-900/40 border border-purple-500/30 flex items-center px-3 gap-2 overflow-hidden text-xs">
-                <i class="ph ph-text-t text-purple-300"></i>
-                <span class="font-mono text-[11px] text-purple-200 truncate">Kinetic Hooks • Dynamic Emojis • Zoom Markers</span>
+              <div class="w-12 text-[10px] font-mono text-slate-400 text-right pr-2 font-bold">V3 [FX]</div>
+              <div class="flex-1 h-9 rounded-lg bg-purple-50 border border-purple-200 flex items-center px-3 gap-2 overflow-hidden text-xs">
+                <i class="ph ph-text-t text-purple-700"></i>
+                <span class="font-mono text-[11px] text-purple-900 font-semibold truncate">Kinetic Hooks • Dynamic Emojis • Zoom Markers</span>
               </div>
             </div>
 
-            <!-- Video Track 2: B-Roll & 3D Inserts -->
+            <!-- Video Track 2: B-Roll -->
             <div class="flex items-center gap-2">
-              <div class="w-12 text-[10px] font-mono text-white/50 text-right pr-2">V2 [B-ROLL]</div>
+              <div class="w-12 text-[10px] font-mono text-slate-400 text-right pr-2 font-bold">V2 [ROLL]</div>
               <div class="flex-1 grid grid-cols-12 gap-1.5 h-9">
-                <div class="col-span-3 rounded-lg bg-rose-900/50 border border-rose-500/30 flex items-center px-2 text-[10px] font-mono text-rose-200 truncate">Drone_4K.mov</div>
-                <div class="col-span-4 rounded-lg bg-rose-900/50 border border-rose-500/30 flex items-center px-2 text-[10px] font-mono text-rose-200 truncate">Parallax_Map_VFX.mov</div>
-                <div class="col-span-5 rounded-lg bg-rose-900/50 border border-rose-500/30 flex items-center px-2 text-[10px] font-mono text-rose-200 truncate">Macro_Watch_CloseUp.mov</div>
+                <div class="col-span-3 rounded-lg bg-rose-50 border border-rose-200 flex items-center px-2 text-[10px] font-mono text-maroon-900 font-bold truncate">Drone_4K.mov</div>
+                <div class="col-span-4 rounded-lg bg-rose-50 border border-rose-200 flex items-center px-2 text-[10px] font-mono text-maroon-900 font-bold truncate">Parallax_VFX.mov</div>
+                <div class="col-span-5 rounded-lg bg-rose-50 border border-rose-200 flex items-center px-2 text-[10px] font-mono text-maroon-900 font-bold truncate">Watch_Macro_SLog.mov</div>
               </div>
             </div>
 
-            <!-- Video Track 1: A-Roll Main Narrative -->
+            <!-- Video Track 1: A-Roll Main Narrative in Maroon -->
             <div class="flex items-center gap-2">
-              <div class="w-12 text-[10px] font-mono text-white/50 text-right pr-2">V1 [A-ROLL]</div>
-              <div class="flex-1 h-10 rounded-lg bg-maroon-700/60 border border-maroon-400/40 flex items-center px-3 justify-between text-xs">
-                <div class="flex items-center gap-2 font-mono text-[11px] text-white">
-                  <i class="ph ph-film-strip text-maroon-200"></i>
+              <div class="w-12 text-[10px] font-mono text-slate-400 text-right pr-2 font-bold">V1 [A-ROLL]</div>
+              <div class="flex-1 h-10 rounded-lg bg-maroon-900 text-white flex items-center px-3 justify-between text-xs shadow-xs">
+                <div class="flex items-center gap-2 font-mono text-[11px]">
+                  <i class="ph ph-film-strip text-rose-300"></i>
                   <span>Main_Talking_Head_SLog3_Graded_4K60</span>
                 </div>
-                <span class="text-[10px] font-mono text-emerald-300 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">L-Cut Synced</span>
+                <span class="text-[10px] font-mono text-white bg-maroon-800 px-2 py-0.5 rounded border border-white/20">L-Cut Synced</span>
               </div>
             </div>
 
-            <!-- Audio Track 1: Crisp Dialogue EQ -->
+            <!-- Audio Track 1: Voice EQ -->
             <div class="flex items-center gap-2">
-              <div class="w-12 text-[10px] font-mono text-white/50 text-right pr-2">A1 [VOX]</div>
-              <div class="flex-1 h-8 rounded-lg bg-emerald-900/40 border border-emerald-500/30 flex items-center px-3 gap-2 text-xs">
-                <i class="ph ph-waveform text-emerald-300"></i>
-                <span class="font-mono text-[11px] text-emerald-200">Voice Over Master (De-Essed, Multiband Compressed, -14 LUFS)</span>
+              <div class="w-12 text-[10px] font-mono text-slate-400 text-right pr-2 font-bold">A1 [VOX]</div>
+              <div class="flex-1 h-8 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center px-3 gap-2 text-xs">
+                <i class="ph ph-waveform text-emerald-700"></i>
+                <span class="font-mono text-[11px] text-emerald-900 font-medium">Dialogue Master (-14 LUFS, De-Essed, Multiband Cleaned)</span>
               </div>
             </div>
 
-            <!-- Audio Track 2: SFX & Rhythmic Hits -->
+            <!-- Audio Track 2: SFX -->
             <div class="flex items-center gap-2">
-              <div class="w-12 text-[10px] font-mono text-white/50 text-right pr-2">A2 [SFX]</div>
+              <div class="w-12 text-[10px] font-mono text-slate-400 text-right pr-2 font-bold">A2 [SFX]</div>
               <div class="flex-1 grid grid-cols-6 gap-1 h-8">
-                <div class="rounded bg-amber-900/50 border border-amber-500/30 flex items-center justify-center text-[9px] font-mono text-amber-200">Whip</div>
-                <div class="rounded bg-amber-900/50 border border-amber-500/30 flex items-center justify-center text-[9px] font-mono text-amber-200">Boom</div>
-                <div class="rounded bg-amber-900/50 border border-amber-500/30 flex items-center justify-center text-[9px] font-mono text-amber-200">Click</div>
-                <div class="rounded bg-amber-900/50 border border-amber-500/30 flex items-center justify-center text-[9px] font-mono text-amber-200">Riser</div>
-                <div class="rounded bg-amber-900/50 border border-amber-500/30 flex items-center justify-center text-[9px] font-mono text-amber-200">Cash</div>
-                <div class="rounded bg-amber-900/50 border border-amber-500/30 flex items-center justify-center text-[9px] font-mono text-amber-200">Hit</div>
+                <div class="rounded bg-amber-50 border border-amber-200 flex items-center justify-center text-[9px] font-mono text-amber-900 font-bold">Whip</div>
+                <div class="rounded bg-amber-50 border border-amber-200 flex items-center justify-center text-[9px] font-mono text-amber-900 font-bold">Boom</div>
+                <div class="rounded bg-amber-50 border border-amber-200 flex items-center justify-center text-[9px] font-mono text-amber-900 font-bold">Click</div>
+                <div class="rounded bg-amber-50 border border-amber-200 flex items-center justify-center text-[9px] font-mono text-amber-900 font-bold">Riser</div>
+                <div class="rounded bg-amber-50 border border-amber-200 flex items-center justify-center text-[9px] font-mono text-amber-900 font-bold">Cash</div>
+                <div class="rounded bg-amber-50 border border-amber-200 flex items-center justify-center text-[9px] font-mono text-amber-900 font-bold">Hit</div>
               </div>
             </div>
 
-            <!-- Audio Track 3: Cinematic Soundtrack -->
+            <!-- Audio Track 3: BGM -->
             <div class="flex items-center gap-2">
-              <div class="w-12 text-[10px] font-mono text-white/50 text-right pr-2">A3 [BGM]</div>
-              <div class="flex-1 h-8 rounded-lg bg-sky-900/40 border border-sky-500/30 flex items-center px-3 gap-2 text-xs">
-                <i class="ph ph-music-notes text-sky-300"></i>
-                <span class="font-mono text-[11px] text-sky-200">Hans Zimmer Style Tension Build (Sidechained Audio Ducking)</span>
+              <div class="w-12 text-[10px] font-mono text-slate-400 text-right pr-2 font-bold">A3 [BGM]</div>
+              <div class="flex-1 h-8 rounded-lg bg-sky-50 border border-sky-200 flex items-center px-3 gap-2 text-xs">
+                <i class="ph ph-music-notes text-sky-700"></i>
+                <span class="font-mono text-[11px] text-sky-900 font-medium">Orchestral Tension Build (Sidechained Ducking Active)</span>
               </div>
             </div>
-
           </div>
 
           <!-- Bottom Control Bar -->
-          <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-white/70">
+          <div class="pt-3 border-t border-slate-200 flex items-center justify-between text-xs font-mono text-slate-500">
             <div class="flex items-center gap-4">
               <span>SNAP: ON</span>
               <span>RENDER: GPU ACCELERATED</span>
             </div>
-            <div class="text-maroon-300 flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <div class="text-maroon-800 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
               ALL CACHE OPTIMIZED
             </div>
           </div>
@@ -863,17 +857,17 @@
     </div>
   </section>
 
-  <!-- The 5-Step Workflow Section -->
-  <section id="process" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/10">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="text-maroon-300 text-xs font-mono uppercase tracking-widest mb-2 flex items-center justify-center gap-2">
+  <!-- 5-Step Process Section -->
+  <section id="process" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-slate-200">
+    <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+      <div class="text-maroon-800 text-xs font-mono uppercase tracking-widest mb-2 flex items-center justify-center gap-2 font-bold">
         <i class="ph ph-git-commit text-base"></i>
-        PRECISION PIPELINE
+        PRECISION WORKFLOW
       </div>
-      <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white mb-4">
-        FROM RAW FOOTAGE TO <span class="italic text-maroon-300 font-light">FINAL MASTER</span>
+      <h2 class="font-heading font-black text-3xl sm:text-5xl text-slate-900 mb-4">
+        FROM RAW FOOTAGE TO <span class="italic text-maroon-800 font-light">FINAL MASTER</span>
       </h2>
-      <p class="text-white/70 text-sm sm:text-base leading-relaxed">
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
         A battle-tested 5-step post-production system built for speed, creative brilliance, and unbeatable viewer retention.
       </p>
     </div>
@@ -881,72 +875,72 @@
     <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
       
       <!-- Step 1 -->
-      <div class="p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-maroon-400/50 transition-all duration-300 relative group flex flex-col justify-between">
+      <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-xs hover:border-maroon-400 transition-all duration-300 relative group flex flex-col justify-between luxury-card reveal-on-scroll">
         <div>
-          <div class="text-3xl font-heading font-black text-maroon-400/40 group-hover:text-maroon-300 transition-colors mb-4">01</div>
-          <h3 class="font-heading font-bold text-lg text-white mb-2">Footage Ingest & Story Arc</h3>
-          <p class="text-white/70 text-xs leading-relaxed">
+          <div class="text-3xl font-heading font-black text-slate-300 group-hover:text-maroon-800 transition-colors mb-4">01</div>
+          <h3 class="font-heading font-black text-lg text-slate-900 mb-2">Ingest & Story Arc</h3>
+          <p class="text-slate-600 text-xs leading-relaxed">
             Eliminating filler words, awkward pauses, and sculpting the core narrative spine with a gripping 3-second hook.
           </p>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/10 text-[10px] font-mono text-maroon-300">
+        <div class="mt-6 pt-4 border-t border-slate-100 text-[10px] font-mono text-maroon-800 font-bold">
           DELIVERY: ROUGH CUT
         </div>
       </div>
 
       <!-- Step 2 -->
-      <div class="p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-maroon-400/50 transition-all duration-300 relative group flex flex-col justify-between">
+      <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-xs hover:border-maroon-400 transition-all duration-300 relative group flex flex-col justify-between luxury-card reveal-on-scroll">
         <div>
-          <div class="text-3xl font-heading font-black text-maroon-400/40 group-hover:text-maroon-300 transition-colors mb-4">02</div>
-          <h3 class="font-heading font-bold text-lg text-white mb-2">Pacing & Retention Engine</h3>
-          <p class="text-white/70 text-xs leading-relaxed">
+          <div class="text-3xl font-heading font-black text-slate-300 group-hover:text-maroon-800 transition-colors mb-4">02</div>
+          <h3 class="font-heading font-black text-lg text-slate-900 mb-2">Pacing & Retention</h3>
+          <p class="text-slate-600 text-xs leading-relaxed">
             Injecting seamless speed ramps, dynamic punch-ins, visual pattern interrupts, and kinetic typography.
           </p>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/10 text-[10px] font-mono text-maroon-300">
-          DELIVERY: FINE PACED CUT
+        <div class="mt-6 pt-4 border-t border-slate-100 text-[10px] font-mono text-maroon-800 font-bold">
+          DELIVERY: FINE CUT
         </div>
       </div>
 
       <!-- Step 3 -->
-      <div class="p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-maroon-400/50 transition-all duration-300 relative group flex flex-col justify-between">
+      <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-xs hover:border-maroon-400 transition-all duration-300 relative group flex flex-col justify-between luxury-card reveal-on-scroll">
         <div>
-          <div class="text-3xl font-heading font-black text-maroon-400/40 group-hover:text-maroon-300 transition-colors mb-4">03</div>
-          <h3 class="font-heading font-bold text-lg text-white mb-2">Sound Design & Foley</h3>
-          <p class="text-white/70 text-xs leading-relaxed">
+          <div class="text-3xl font-heading font-black text-slate-300 group-hover:text-maroon-800 transition-colors mb-4">03</div>
+          <h3 class="font-heading font-black text-lg text-slate-900 mb-2">Sound Design</h3>
+          <p class="text-slate-600 text-xs leading-relaxed">
             Layering risers, swooshes, sub-bass hits, room tone ambience, and crystal-clear voice EQ mastering.
           </p>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/10 text-[10px] font-mono text-maroon-300">
-          DELIVERY: 48kHz DOLBY AUDIO
+        <div class="mt-6 pt-4 border-t border-slate-100 text-[10px] font-mono text-maroon-800 font-bold">
+          DELIVERY: 48kHz AUDIO
         </div>
       </div>
 
       <!-- Step 4 -->
-      <div class="p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-maroon-400/50 transition-all duration-300 relative group flex flex-col justify-between">
+      <div class="p-6 rounded-3xl bg-white border border-slate-200 shadow-xs hover:border-maroon-400 transition-all duration-300 relative group flex flex-col justify-between luxury-card reveal-on-scroll">
         <div>
-          <div class="text-3xl font-heading font-black text-maroon-400/40 group-hover:text-maroon-300 transition-colors mb-4">04</div>
-          <h3 class="font-heading font-bold text-lg text-white mb-2">Color Science & Film Grade</h3>
-          <p class="text-white/70 text-xs leading-relaxed">
+          <div class="text-3xl font-heading font-black text-slate-300 group-hover:text-maroon-800 transition-colors mb-4">04</div>
+          <h3 class="font-heading font-black text-lg text-slate-900 mb-2">Color Science</h3>
+          <p class="text-slate-600 text-xs leading-relaxed">
             Node-based grading in DaVinci Resolve: shot matching, skin tone isolation, film halation, and Kodak grain.
           </p>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/10 text-[10px] font-mono text-maroon-300">
-          DELIVERY: CINEMATIC GRADE
+        <div class="mt-6 pt-4 border-t border-slate-100 text-[10px] font-mono text-maroon-800 font-bold">
+          DELIVERY: FILM GRADE
         </div>
       </div>
 
-      <!-- Step 5 -->
-      <div class="p-6 rounded-3xl bg-gradient-to-b from-maroon-900/60 to-maroon-950/80 border border-maroon-500/40 hover:border-white/50 transition-all duration-300 relative group flex flex-col justify-between">
+      <!-- Step 5: Highlight in Velvet Maroon -->
+      <div class="p-6 rounded-3xl bg-gradient-to-b from-maroon-900 via-maroon-800 to-maroon-900 text-white shadow-xl relative group flex flex-col justify-between reveal-on-scroll">
         <div>
-          <div class="text-3xl font-heading font-black text-white mb-4">05</div>
-          <h3 class="font-heading font-bold text-lg text-white mb-2">Master Render & Formats</h3>
-          <p class="text-white/80 text-xs leading-relaxed">
+          <div class="text-3xl font-heading font-black text-rose-300 mb-4">05</div>
+          <h3 class="font-heading font-black text-lg text-white mb-2">Master Exports</h3>
+          <p class="text-rose-100 text-xs leading-relaxed">
             Exporting in pristine 4K ProRes 422 & H.265 tailored for YouTube 16:9, Reels 9:16, plus high-CTR thumbnail frames.
           </p>
         </div>
-        <div class="mt-6 pt-4 border-t border-white/20 text-[10px] font-mono text-white font-semibold">
-          DELIVERY: MULTI-ASPECT READY
+        <div class="mt-6 pt-4 border-t border-white/20 text-[10px] font-mono text-white font-bold">
+          DELIVERY: MULTI-ASPECT
         </div>
       </div>
 
@@ -954,17 +948,17 @@
   </section>
 
   <!-- Pricing Packages & Interactive Estimator -->
-  <section id="pricing" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/10">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="text-maroon-300 text-xs font-mono uppercase tracking-widest mb-2 flex items-center justify-center gap-2">
+  <section id="pricing" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-slate-200">
+    <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+      <div class="text-maroon-800 text-xs font-mono uppercase tracking-widest mb-2 flex items-center justify-center gap-2 font-bold">
         <i class="ph ph-tag text-base"></i>
-        SERVICES & PACKAGES
+        INVESTMENT TIERS
       </div>
-      <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white mb-4">
-        FLEXIBLE <span class="italic text-maroon-300 font-light">INVESTMENT TIERS</span>
+      <h2 class="font-heading font-black text-3xl sm:text-5xl text-slate-900 mb-4">
+        CLEAR & TRANSPARENT <span class="italic text-maroon-800 font-light">RATES</span>
       </h2>
-      <p class="text-white/70 text-sm sm:text-base leading-relaxed">
-        Whether you are scaling a personal brand, launching high-converting paid ads, or building a high-retention YouTube channel.
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Whether you are scaling a personal brand, launching high-converting paid ads, or building an elite YouTube channel.
       </p>
     </div>
 
@@ -972,48 +966,48 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
       
       <!-- Tier 1: Viral Short-Form -->
-      <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col justify-between relative">
+      <div class="p-8 rounded-3xl bg-white border border-slate-200 shadow-xs hover:border-maroon-300 transition-all duration-300 flex flex-col justify-between luxury-card reveal-on-scroll">
         <div>
-          <div class="text-xs font-mono uppercase tracking-widest text-maroon-300 mb-2">TIER 01</div>
-          <h3 class="font-heading font-bold text-2xl text-white mb-2">Short-Form Domination</h3>
-          <p class="text-white/70 text-xs mb-6">Designed for TikTok, IG Reels & YouTube Shorts looking for rapid viral growth.</p>
+          <div class="text-xs font-mono uppercase tracking-widest text-maroon-800 font-bold mb-2">TIER 01</div>
+          <h3 class="font-heading font-black text-2xl text-slate-900 mb-2">Short-Form Domination</h3>
+          <p class="text-slate-600 text-xs mb-6">Designed for TikTok, IG Reels & YouTube Shorts looking for rapid viral growth.</p>
           
           <div class="flex items-baseline gap-2 mb-6">
-            <span class="text-3xl sm:text-4xl font-heading font-black text-white">$45 - $85</span>
-            <span class="text-xs font-mono text-white/50">/ per reel</span>
+            <span class="text-3xl sm:text-4xl font-heading font-black text-slate-900">$45 - $85</span>
+            <span class="text-xs font-mono text-slate-500 font-semibold">/ per reel</span>
           </div>
 
-          <ul class="space-y-3 text-xs text-white/80 font-normal">
-            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-400"></i> Up to 60-second runtime</li>
-            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-400"></i> Alex Hormozi / Ali dynamic kinetic text</li>
-            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-400"></i> Fast-paced b-roll & sound effects</li>
-            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-400"></i> 24-48 hour turnaround</li>
-            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-400"></i> Unlimited minor revisions</li>
+          <ul class="space-y-3 text-xs text-slate-700 font-medium">
+            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-600"></i> Up to 60-second runtime</li>
+            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-600"></i> Alex Hormozi / Ali dynamic kinetic text</li>
+            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-600"></i> Fast-paced b-roll & sound effects</li>
+            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-600"></i> 24-48 hour turnaround</li>
+            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-600"></i> Unlimited minor revisions</li>
           </ul>
         </div>
 
-        <a href="#contact" class="mt-8 w-full py-3 rounded-2xl bg-white/10 hover:bg-white text-white hover:text-maroon-950 font-semibold text-xs tracking-wider uppercase text-center transition-all">
+        <a href="#contact" class="mt-8 w-full py-3 rounded-2xl bg-slate-100 hover:bg-maroon-900 text-slate-800 hover:text-white font-bold text-xs tracking-wider uppercase text-center transition-all">
           Select Short-Form
         </a>
       </div>
 
-      <!-- Tier 2: YouTube Long-Form (Featured) -->
-      <div class="p-8 rounded-3xl bg-gradient-to-b from-maroon-900/80 via-maroon-950 to-maroon-950 border-2 border-white/40 shadow-2xl shadow-maroon-900/60 relative flex flex-col justify-between scale-105 z-10">
-        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-white text-maroon-950 font-mono text-[10px] font-black uppercase tracking-widest shadow-lg">
+      <!-- Tier 2: YouTube Long-Form (Featured in Maroon) -->
+      <div class="p-8 rounded-3xl bg-gradient-to-b from-maroon-900 via-maroon-800 to-maroon-950 text-white shadow-2xl relative flex flex-col justify-between scale-105 z-10 reveal-on-scroll">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-white text-maroon-900 font-mono text-[10px] font-black uppercase tracking-widest shadow-lg">
           MOST POPULAR
         </div>
 
         <div>
-          <div class="text-xs font-mono uppercase tracking-widest text-maroon-200 mb-2">TIER 02</div>
-          <h3 class="font-heading font-bold text-2xl text-white mb-2">YouTube Retention Suite</h3>
-          <p class="text-white/70 text-xs mb-6">Deep storytelling, documentary animations, and maximum watch time.</p>
+          <div class="text-xs font-mono uppercase tracking-widest text-rose-300 font-bold mb-2">TIER 02</div>
+          <h3 class="font-heading font-black text-2xl text-white mb-2">YouTube Retention Suite</h3>
+          <p class="text-rose-100 text-xs mb-6">Deep storytelling, documentary animations, and maximum watch time.</p>
           
           <div class="flex items-baseline gap-2 mb-6">
             <span class="text-3xl sm:text-4xl font-heading font-black text-white">$250 - $600</span>
-            <span class="text-xs font-mono text-white/50">/ per video</span>
+            <span class="text-xs font-mono text-rose-200">/ per video</span>
           </div>
 
-          <ul class="space-y-3 text-xs text-white/90 font-normal">
+          <ul class="space-y-3 text-xs text-rose-100 font-normal">
             <li class="flex items-center gap-2"><i class="ph-bold ph-check text-white"></i> 8 - 25 minute comprehensive edit</li>
             <li class="flex items-center gap-2"><i class="ph-bold ph-check text-white"></i> 2.5D Parallax effects & motion graphics</li>
             <li class="flex items-center gap-2"><i class="ph-bold ph-check text-white"></i> Full cinematic audio mixing & ducking</li>
@@ -1023,83 +1017,80 @@
           </ul>
         </div>
 
-        <a href="#contact" class="mt-8 w-full py-3.5 rounded-2xl bg-white text-maroon-950 hover:bg-maroon-100 font-bold text-xs tracking-wider uppercase text-center transition-all shadow-lg shadow-white/20">
+        <a href="#contact" class="mt-8 w-full py-3.5 rounded-2xl bg-white text-maroon-900 hover:bg-slate-100 font-black text-xs tracking-wider uppercase text-center transition-all shadow-md">
           Book YouTube Suite
         </a>
       </div>
 
       <!-- Tier 3: Commercial & Brand Ad -->
-      <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-white/30 transition-all duration-300 flex flex-col justify-between relative">
+      <div class="p-8 rounded-3xl bg-white border border-slate-200 shadow-xs hover:border-maroon-300 transition-all duration-300 flex flex-col justify-between luxury-card reveal-on-scroll">
         <div>
-          <div class="text-xs font-mono uppercase tracking-widest text-maroon-300 mb-2">TIER 03</div>
-          <h3 class="font-heading font-bold text-2xl text-white mb-2">Brand Commercial / TVC</h3>
-          <p class="text-white/70 text-xs mb-6">High-stakes commercial campaigns, product promos, and music videos.</p>
+          <div class="text-xs font-mono uppercase tracking-widest text-maroon-800 font-bold mb-2">TIER 03</div>
+          <h3 class="font-heading font-black text-2xl text-slate-900 mb-2">Brand Commercial / TVC</h3>
+          <p class="text-slate-600 text-xs mb-6">High-stakes commercial campaigns, product promos, and music videos.</p>
           
           <div class="flex items-baseline gap-2 mb-6">
-            <span class="text-3xl sm:text-4xl font-heading font-black text-white">$650+</span>
-            <span class="text-xs font-mono text-white/50">/ project</span>
+            <span class="text-3xl sm:text-4xl font-heading font-black text-slate-900">$650+</span>
+            <span class="text-xs font-mono text-slate-500 font-semibold">/ project</span>
           </div>
 
-          <ul class="space-y-3 text-xs text-white/80 font-normal">
-            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-400"></i> 15s, 30s & 60s broadcast cuts</li>
-            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-400"></i> 3D motion tracking & logo integration</li>
-            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-400"></i> Hollywood film print color grade</li>
-            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-400"></i> Dedicated sound design with licensed stems</li>
-            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-400"></i> Multi-aspect delivery (16:9, 9:16, 1:1, 4:5)</li>
+          <ul class="space-y-3 text-xs text-slate-700 font-medium">
+            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-600"></i> 15s, 30s & 60s broadcast cuts</li>
+            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-600"></i> 3D motion tracking & logo integration</li>
+            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-600"></i> Hollywood film print color grade</li>
+            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-600"></i> Dedicated sound design with licensed stems</li>
+            <li class="flex items-center gap-2"><i class="ph-bold ph-check text-emerald-600"></i> Multi-aspect delivery (16:9, 9:16, 1:1, 4:5)</li>
           </ul>
         </div>
 
-        <a href="#contact" class="mt-8 w-full py-3 rounded-2xl bg-white/10 hover:bg-white text-white hover:text-maroon-950 font-semibold text-xs tracking-wider uppercase text-center transition-all">
+        <a href="#contact" class="mt-8 w-full py-3 rounded-2xl bg-slate-100 hover:bg-maroon-900 text-slate-800 hover:text-white font-bold text-xs tracking-wider uppercase text-center transition-all">
           Custom Brand Quote
         </a>
       </div>
 
     </div>
 
-    <!-- Interactive Quick Quote Calculator -->
-    <div class="p-8 rounded-3xl bg-maroon-900/30 border border-white/15 backdrop-blur-md max-w-4xl mx-auto">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 pb-4 border-b border-white/10 gap-2">
+    <!-- Quick Cost Estimator -->
+    <div class="p-8 rounded-3xl bg-white border border-slate-300 shadow-lg max-w-4xl mx-auto reveal-on-scroll">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-6 pb-4 border-b border-slate-100 gap-2">
         <div>
-          <h3 class="font-heading font-bold text-xl text-white">Instant Project Cost Estimator</h3>
-          <p class="text-xs text-white/70">Select your project parameters to get a real-time ballpark estimate.</p>
+          <h3 class="font-heading font-black text-xl text-slate-900">Instant Project Cost Estimator</h3>
+          <p class="text-xs text-slate-500">Select your project parameters to get a real-time ballpark estimate.</p>
         </div>
-        <div class="text-xs font-mono text-maroon-300">ESTIMATE CALCULATOR</div>
+        <div class="text-xs font-mono text-maroon-800 font-bold">ESTIMATE CALCULATOR</div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
-        <!-- Project Type -->
         <div>
-          <label class="block text-xs font-mono text-white/80 mb-2">PROJECT TYPE</label>
-          <select id="calc-type" class="w-full bg-maroon-950 border border-white/20 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-white">
+          <label class="block text-xs font-mono text-slate-700 font-bold mb-2">PROJECT TYPE</label>
+          <select id="calc-type" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none">
             <option value="reel">Viral Short / Reel (60s)</option>
             <option value="youtube" selected>YouTube Long-Form (10-15m)</option>
             <option value="commercial">Commercial / TVC (30-60s)</option>
           </select>
         </div>
 
-        <!-- Quantity -->
         <div>
-          <label class="block text-xs font-mono text-white/80 mb-2">QUANTITY (VIDEOS)</label>
-          <input type="number" id="calc-qty" value="1" min="1" max="50" class="w-full bg-maroon-950 border border-white/20 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-white">
+          <label class="block text-xs font-mono text-slate-700 font-bold mb-2">QUANTITY (VIDEOS)</label>
+          <input type="number" id="calc-qty" value="1" min="1" max="50" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none">
         </div>
 
-        <!-- Speed -->
         <div>
-          <label class="block text-xs font-mono text-white/80 mb-2">DELIVERY SPEED</label>
-          <select id="calc-speed" class="w-full bg-maroon-950 border border-white/20 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-white">
+          <label class="block text-xs font-mono text-slate-700 font-bold mb-2">DELIVERY SPEED</label>
+          <select id="calc-speed" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-slate-900 focus:outline-none">
             <option value="standard" selected>Standard (3-5 Days)</option>
             <option value="rush">Rush 24h Delivery (+35%)</option>
           </select>
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between pt-4 border-t border-white/10 gap-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between pt-4 border-t border-slate-100 gap-4">
         <div>
-          <div class="text-xs font-mono text-white/60">ESTIMATED INVESTMENT:</div>
-          <div class="text-2xl sm:text-3xl font-heading font-black text-white" id="calc-total">$350 USD</div>
+          <div class="text-xs font-mono text-slate-500">ESTIMATED INVESTMENT:</div>
+          <div class="text-2xl sm:text-3xl font-heading font-black text-maroon-900" id="calc-total">$350 USD</div>
         </div>
 
-        <button onclick="orderViaWhatsApp()" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+        <button onclick="orderViaWhatsApp()" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 shadow-md">
           <i class="ph-bold ph-whatsapp-logo text-lg"></i>
           <span>Discuss via WhatsApp</span>
         </button>
@@ -1107,91 +1098,91 @@
     </div>
   </section>
 
-  <!-- Client Testimonials & Social Proof -->
-  <section id="reviews" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/10">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="text-maroon-300 text-xs font-mono uppercase tracking-widest mb-2 flex items-center justify-center gap-2">
+  <!-- Client Testimonials -->
+  <section id="reviews" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-slate-200">
+    <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+      <div class="text-maroon-800 text-xs font-mono uppercase tracking-widest mb-2 flex items-center justify-center gap-2 font-bold">
         <i class="ph ph-chats-circle text-base"></i>
         WORDS FROM CREATORS & BRANDS
       </div>
-      <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white mb-4">
-        CLIENT <span class="italic text-maroon-300 font-light">TESTIMONIALS</span>
+      <h2 class="font-heading font-black text-3xl sm:text-5xl text-slate-900 mb-4">
+        CLIENT <span class="italic text-maroon-800 font-light">TESTIMONIALS</span>
       </h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       
       <!-- Review 1 -->
-      <div class="p-8 rounded-3xl bg-white/5 border border-white/10 relative flex flex-col justify-between">
+      <div class="p-8 rounded-3xl bg-white border border-slate-200 luxury-card relative flex flex-col justify-between reveal-on-scroll">
         <div>
-          <div class="flex gap-1 text-amber-400 text-base mb-4">
+          <div class="flex gap-1 text-amber-500 text-base mb-4">
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
           </div>
-          <p class="text-white/80 text-sm leading-relaxed italic mb-6">
+          <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
             "Hyder transformed our YouTube retention graphs. Our average percentage viewed shot up from 38% to over 64% on the very first video he edited. His sound design and comedic timing are on another level."
           </p>
         </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-white/10">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-maroon-600 to-rose-400 flex items-center justify-center font-bold text-white text-sm">
+        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-maroon-800 to-rose-500 text-white flex items-center justify-center font-bold text-sm">
             MR
           </div>
           <div>
-            <div class="text-sm font-heading font-bold text-white">Marcus Reed</div>
-            <div class="text-xs text-maroon-300 font-mono">Tech Creator (680k Subs)</div>
+            <div class="text-sm font-heading font-black text-slate-900">Marcus Reed</div>
+            <div class="text-xs text-maroon-800 font-mono font-semibold">Tech Creator (680k Subs)</div>
           </div>
         </div>
       </div>
 
       <!-- Review 2 -->
-      <div class="p-8 rounded-3xl bg-white/5 border border-white/10 relative flex flex-col justify-between">
+      <div class="p-8 rounded-3xl bg-white border border-slate-200 luxury-card relative flex flex-col justify-between reveal-on-scroll">
         <div>
-          <div class="flex gap-1 text-amber-400 text-base mb-4">
+          <div class="flex gap-1 text-amber-500 text-base mb-4">
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
           </div>
-          <p class="text-white/80 text-sm leading-relaxed italic mb-6">
+          <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
             "We hired Hyder for our luxury timepiece campaign. His color grading in DaVinci Resolve looked like an Arri Alexa feature film. He delivered ahead of deadline and needed zero revisions."
           </p>
         </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-white/10">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-maroon-700 to-amber-500 flex items-center justify-center font-bold text-white text-sm">
+        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-maroon-900 to-amber-600 text-white flex items-center justify-center font-bold text-sm">
             SL
           </div>
           <div>
-            <div class="text-sm font-heading font-bold text-white">Sophia Laurent</div>
-            <div class="text-xs text-maroon-300 font-mono">Creative Director, Chronos UK</div>
+            <div class="text-sm font-heading font-black text-slate-900">Sophia Laurent</div>
+            <div class="text-xs text-maroon-800 font-mono font-semibold">Creative Director, Chronos UK</div>
           </div>
         </div>
       </div>
 
       <!-- Review 3 -->
-      <div class="p-8 rounded-3xl bg-white/5 border border-white/10 relative flex flex-col justify-between">
+      <div class="p-8 rounded-3xl bg-white border border-slate-200 luxury-card relative flex flex-col justify-between reveal-on-scroll">
         <div>
-          <div class="flex gap-1 text-amber-400 text-base mb-4">
+          <div class="flex gap-1 text-amber-500 text-base mb-4">
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
             <i class="ph-fill ph-star"></i>
           </div>
-          <p class="text-white/80 text-sm leading-relaxed italic mb-6">
+          <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
             "If you need viral short-form videos that actually generate revenue, Hyder is the guy. His 30-day batch of TikToks generated over 18 million impressions for our SaaS app."
           </p>
         </div>
-        <div class="flex items-center gap-3 pt-4 border-t border-white/10">
-          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-maroon-800 to-indigo-500 flex items-center justify-center font-bold text-white text-sm">
+        <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-maroon-800 to-indigo-600 text-white flex items-center justify-center font-bold text-sm">
             DK
           </div>
           <div>
-            <div class="text-sm font-heading font-bold text-white">David Kim</div>
-            <div class="text-xs text-maroon-300 font-mono">Founder, Veloce AI</div>
+            <div class="text-sm font-heading font-black text-slate-900">David Kim</div>
+            <div class="text-xs text-maroon-800 font-mono font-semibold">Founder, Veloce AI</div>
           </div>
         </div>
       </div>
@@ -1200,100 +1191,100 @@
   </section>
 
   <!-- Contact & Booking Section -->
-  <section id="contact" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/10">
+  <section id="contact" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-slate-200">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
       
       <!-- Contact Info -->
-      <div class="lg:col-span-5">
-        <div class="text-maroon-300 text-xs font-mono uppercase tracking-widest mb-2 flex items-center gap-2">
+      <div class="lg:col-span-5 reveal-on-scroll">
+        <div class="text-maroon-800 text-xs font-mono uppercase tracking-widest mb-2 flex items-center gap-2 font-bold">
           <i class="ph ph-envelope text-base"></i>
           INITIATE CONTACT
         </div>
-        <h2 class="font-heading font-extrabold text-3xl sm:text-5xl text-white mb-6">
-          LET'S CREATE SOMETHING <span class="italic text-maroon-300 font-light">ICONIC.</span>
+        <h2 class="font-heading font-black text-3xl sm:text-5xl text-slate-900 mb-6">
+          LET'S CREATE SOMETHING <span class="italic text-maroon-800 font-light">ICONIC.</span>
         </h2>
-        <p class="text-white/75 text-sm sm:text-base leading-relaxed mb-8">
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
           Have an upcoming video project, commercial campaign, or looking for a dedicated video editing partner? Send a message and let's craft something remarkable.
         </p>
 
-        <!-- Direct Contact Badges -->
+        <!-- Direct Contact Options -->
         <div class="space-y-4 mb-8">
           <!-- WhatsApp Direct -->
-          <a href="https://wa.me/?text=Hi%20Hyder,%20I%20saw%20your%20video%20editor%20portfolio%20and%20would%20love%20to%20collaborate!" target="_blank" class="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 hover:border-emerald-400 flex items-center justify-between group transition-all">
+          <a href="https://wa.me/?text=Hi%20Hyder,%20I%20saw%20your%20video%20editor%20portfolio%20and%20would%20love%20to%20collaborate!" target="_blank" class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 hover:border-emerald-400 flex items-center justify-between group transition-all shadow-xs">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-emerald-600/30 text-emerald-400 flex items-center justify-center text-xl">
+              <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-xl shadow-xs">
                 <i class="ph-bold ph-whatsapp-logo"></i>
               </div>
               <div>
-                <div class="text-xs font-mono text-emerald-300">DIRECT WHATSAPP</div>
-                <div class="text-sm font-semibold text-white">Chat With Hyder Instantly</div>
+                <div class="text-xs font-mono text-emerald-800 font-bold">DIRECT WHATSAPP</div>
+                <div class="text-sm font-bold text-slate-900">Chat With Hyder Instantly</div>
               </div>
             </div>
-            <i class="ph ph-arrow-up-right text-emerald-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            <i class="ph ph-arrow-up-right text-emerald-700 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform font-bold"></i>
           </a>
 
-          <!-- Email Direct with Copy -->
-          <div class="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
+          <!-- Email Copy Card -->
+          <div class="p-4 rounded-2xl bg-white border border-slate-200 flex items-center justify-between shadow-xs">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-maroon-900/60 text-maroon-300 flex items-center justify-center text-xl">
+              <div class="w-10 h-10 rounded-xl bg-maroon-50 text-maroon-800 flex items-center justify-center text-xl">
                 <i class="ph-bold ph-envelope-simple"></i>
               </div>
               <div>
-                <div class="text-xs font-mono text-maroon-300">EMAIL INQUIRIES</div>
-                <div class="text-sm font-semibold text-white" id="email-text">hydershaikh.edits@gmail.com</div>
+                <div class="text-xs font-mono text-maroon-800 font-bold">EMAIL INQUIRIES</div>
+                <div class="text-sm font-bold text-slate-900" id="email-text">hydershaikh.edits@gmail.com</div>
               </div>
             </div>
-            <button onclick="copyEmail()" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-mono text-white transition-all flex items-center gap-1.5" id="copy-btn">
+            <button onclick="copyEmail()" class="px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-mono text-slate-800 font-bold transition-all flex items-center gap-1.5" id="copy-btn">
               <i class="ph ph-copy"></i>
               <span>Copy</span>
             </button>
           </div>
         </div>
 
-        <!-- Social Channels -->
-        <div class="pt-6 border-t border-white/10">
-          <div class="text-xs font-mono uppercase tracking-widest text-white/50 mb-3">FOLLOW MY EDITING LAB:</div>
+        <!-- Social Handles -->
+        <div class="pt-6 border-t border-slate-200">
+          <div class="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3 font-bold">SOCIAL CHANNELS:</div>
           <div class="flex gap-3 text-lg">
-            <a href="https://github.com/hydershaikhs" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-maroon-900/60 transition-all">
+            <a href="https://github.com/hydershaikhs" target="_blank" class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-white hover:bg-maroon-900 transition-all shadow-xs">
               <i class="ph-bold ph-github-logo"></i>
             </a>
-            <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-maroon-900/60 transition-all">
+            <a href="#" class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-white hover:bg-maroon-900 transition-all shadow-xs">
               <i class="ph-bold ph-youtube-logo"></i>
             </a>
-            <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-maroon-900/60 transition-all">
+            <a href="#" class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-white hover:bg-maroon-900 transition-all shadow-xs">
               <i class="ph-bold ph-instagram-logo"></i>
             </a>
-            <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-maroon-900/60 transition-all">
+            <a href="#" class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-white hover:bg-maroon-900 transition-all shadow-xs">
               <i class="ph-bold ph-linkedin-logo"></i>
             </a>
-            <a href="#" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/80 hover:text-white hover:bg-maroon-900/60 transition-all">
+            <a href="#" class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-700 hover:text-white hover:bg-maroon-900 transition-all shadow-xs">
               <i class="ph-bold ph-x-logo"></i>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Contact Form -->
-      <div class="lg:col-span-7">
-        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-maroon-900/40 via-maroon-950/70 to-black/80 border border-white/20 backdrop-blur-xl shadow-2xl">
-          <h3 class="font-heading font-bold text-2xl text-white mb-2">Project Brief</h3>
-          <p class="text-xs text-white/70 mb-6">Fill in details about your project and I will respond within 12 hours.</p>
+      <!-- Project Inquiry Form -->
+      <div class="lg:col-span-7 reveal-on-scroll">
+        <form id="contact-form" onsubmit="handleFormSubmit(event)" class="p-8 sm:p-10 rounded-3xl bg-white border border-slate-300 shadow-xl">
+          <h3 class="font-heading font-black text-2xl text-slate-900 mb-2">Project Brief</h3>
+          <p class="text-xs text-slate-500 mb-6">Fill in details about your project and I will respond within 12 hours.</p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
-              <label class="block text-xs font-mono text-white/80 mb-2">YOUR NAME *</label>
-              <input type="text" required placeholder="e.g. Alex Hunter" class="w-full bg-maroon-950/80 border border-white/15 focus:border-white rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none transition-colors">
+              <label class="block text-xs font-mono text-slate-700 font-bold mb-2">YOUR NAME *</label>
+              <input type="text" required placeholder="e.g. Alex Hunter" class="w-full bg-slate-50 border border-slate-300 focus:border-maroon-800 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-colors">
             </div>
             <div>
-              <label class="block text-xs font-mono text-white/80 mb-2">EMAIL ADDRESS *</label>
-              <input type="email" required placeholder="alex@company.com" class="w-full bg-maroon-950/80 border border-white/15 focus:border-white rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none transition-colors">
+              <label class="block text-xs font-mono text-slate-700 font-bold mb-2">EMAIL ADDRESS *</label>
+              <input type="email" required placeholder="alex@company.com" class="w-full bg-slate-50 border border-slate-300 focus:border-maroon-800 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-colors">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
-              <label class="block text-xs font-mono text-white/80 mb-2">PROJECT TYPE</label>
-              <select class="w-full bg-maroon-950 border border-white/15 focus:border-white rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-colors">
+              <label class="block text-xs font-mono text-slate-700 font-bold mb-2">PROJECT TYPE</label>
+              <select class="w-full bg-slate-50 border border-slate-300 focus:border-maroon-800 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none transition-colors">
                 <option>YouTube Long-Form Series</option>
                 <option>Viral TikTok / Reels Batch</option>
                 <option>Commercial TVC / Brand Ad</option>
@@ -1302,8 +1293,8 @@
               </select>
             </div>
             <div>
-              <label class="block text-xs font-mono text-white/80 mb-2">ESTIMATED BUDGET</label>
-              <select class="w-full bg-maroon-950 border border-white/15 focus:border-white rounded-xl px-4 py-3 text-sm text-white focus:outline-none transition-colors">
+              <label class="block text-xs font-mono text-slate-700 font-bold mb-2">ESTIMATED BUDGET</label>
+              <select class="w-full bg-slate-50 border border-slate-300 focus:border-maroon-800 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none transition-colors">
                 <option>$300 - $700</option>
                 <option>$700 - $1,500</option>
                 <option>$1,500 - $3,000</option>
@@ -1313,16 +1304,16 @@
           </div>
 
           <div class="mb-4">
-            <label class="block text-xs font-mono text-white/80 mb-2">RAW FOOTAGE / REFERENCE LINK (OPTIONAL)</label>
-            <input type="url" placeholder="Google Drive, Dropbox, Frame.io or YouTube link" class="w-full bg-maroon-950/80 border border-white/15 focus:border-white rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none transition-colors">
+            <label class="block text-xs font-mono text-slate-700 font-bold mb-2">RAW FOOTAGE / REFERENCE LINK (OPTIONAL)</label>
+            <input type="url" placeholder="Google Drive, Dropbox, Frame.io or YouTube link" class="w-full bg-slate-50 border border-slate-300 focus:border-maroon-800 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-colors">
           </div>
 
           <div class="mb-6">
-            <label class="block text-xs font-mono text-white/80 mb-2">PROJECT DETAILS / VISION *</label>
-            <textarea rows="4" required placeholder="Tell me about your video, the style you're aiming for, target audience, and turnaround deadline..." class="w-full bg-maroon-950/80 border border-white/15 focus:border-white rounded-xl px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none transition-colors resize-none"></textarea>
+            <label class="block text-xs font-mono text-slate-700 font-bold mb-2">PROJECT DETAILS / VISION *</label>
+            <textarea rows="4" required placeholder="Tell me about your video, target audience, editing style, and deadline..." class="w-full bg-slate-50 border border-slate-300 focus:border-maroon-800 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-colors resize-none"></textarea>
           </div>
 
-          <button type="submit" class="w-full py-4 rounded-xl bg-white text-maroon-950 hover:bg-maroon-100 font-bold text-sm tracking-wider uppercase transition-all shadow-xl shadow-white/10 active:scale-98 flex items-center justify-center gap-2">
+          <button type="submit" class="btn-maroon-shimmer w-full py-4 rounded-xl text-white font-bold text-sm tracking-wider uppercase transition-all shadow-lg active:scale-98 flex items-center justify-center gap-2">
             <span>Send Project Inquiry</span>
             <i class="ph-bold ph-paper-plane-tilt"></i>
           </button>
@@ -1332,56 +1323,55 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-12 px-6 md:px-12 border-t border-white/10 bg-maroon-950/90 text-white/70 text-xs font-mono">
+  <!-- Footer with Logo and Copyright -->
+  <footer class="py-12 px-6 md:px-12 border-t border-slate-200 bg-white text-slate-500 text-xs font-mono">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <!-- Footer Logo -->
       <div class="flex items-center gap-3">
-        <div class="w-7 h-7 rounded-lg bg-maroon-800 border border-white/20 flex items-center justify-center font-heading font-black text-white text-xs">
-          HS
-        </div>
-        <span>&copy; 2026 Hyder Shaikh. All Rights Reserved.</span>
+        <img src="assets/images/logo-icon.svg" alt="Hyder Shaikh Logo" class="w-8 h-8 rounded-xl shadow-xs">
+        <span class="font-bold text-slate-900">&copy; 2026 Hyder Shaikh. All Rights Reserved.</span>
       </div>
 
       <div class="flex items-center gap-6">
-        <span class="text-maroon-300">PREMIUM MAROON & WHITE SUITE</span>
-        <a href="#hero" class="hover:text-white transition-colors flex items-center gap-1">
+        <span class="text-maroon-800 font-bold">WHITE & MAROON LUXURY SUITE</span>
+        <a href="#hero" class="hover:text-maroon-800 transition-colors flex items-center gap-1 font-bold">
           Back To Top <i class="ph ph-arrow-up"></i>
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- Video Player Lightbox Modal -->
-  <div id="video-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl hidden flex items-center justify-center p-4 sm:p-8 animate-fadeIn">
-    <div class="relative w-full max-w-5xl bg-maroon-950 border border-white/20 rounded-3xl overflow-hidden shadow-2xl">
+  <!-- Video Lightbox Modal -->
+  <div id="video-modal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-xl hidden flex items-center justify-center p-4 sm:p-8 animate-fadeIn">
+    <div class="relative w-full max-w-5xl bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-2xl">
       
       <!-- Modal Header -->
-      <div class="flex items-center justify-between p-4 sm:p-6 border-b border-white/10 bg-maroon-900/60">
+      <div class="flex items-center justify-between p-4 sm:p-6 border-b border-slate-200 bg-slate-50">
         <div class="flex items-center gap-3">
-          <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
-          <h4 class="font-heading font-bold text-white text-base sm:text-lg" id="modal-video-title">Project Video Preview</h4>
+          <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse"></span>
+          <h4 class="font-heading font-black text-slate-900 text-base sm:text-lg" id="modal-video-title">Project Video Preview</h4>
         </div>
-        <button onclick="closeVideoModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-xl transition-all" aria-label="Close modal">
+        <button onclick="closeVideoModal()" class="w-9 h-9 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-800 flex items-center justify-center text-xl transition-all" aria-label="Close modal">
           <i class="ph ph-x"></i>
         </button>
       </div>
 
       <!-- Video Player Frame -->
       <div class="relative aspect-video bg-black flex items-center justify-center overflow-hidden" id="modal-video-container">
-        <!-- Interactive Video Tag / Embed -->
         <video id="modal-video-element" class="w-full h-full object-contain" controls autoplay loop playsinline>
           <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
           Your browser does not support video.
         </video>
       </div>
 
-      <!-- Modal Footer Info -->
-      <div class="p-4 sm:p-6 bg-maroon-950/90 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-white/10">
-        <div class="text-xs font-mono text-white/80" id="modal-video-desc">
+      <!-- Modal Footer -->
+      <div class="p-4 sm:p-6 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-slate-200">
+        <div class="text-xs font-mono text-slate-600" id="modal-video-desc">
           High-bitrate ProRes master • Edited in Premiere Pro • Color Graded in DaVinci Resolve
         </div>
         <div class="flex items-center gap-3">
-          <a href="#contact" onclick="closeVideoModal()" class="px-5 py-2 rounded-xl bg-white text-maroon-950 font-bold text-xs uppercase tracking-wider hover:bg-maroon-100 transition-colors">
+          <a href="#contact" onclick="closeVideoModal()" class="px-5 py-2.5 rounded-xl bg-maroon-900 text-white font-bold text-xs uppercase tracking-wider hover:bg-maroon-800 transition-colors shadow-sm">
             Inquire About Similar Edit
           </a>
         </div>
@@ -1390,13 +1380,13 @@
     </div>
   </div>
 
-  <!-- Toast Notification Container -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 px-5 py-3 rounded-2xl bg-white text-maroon-950 font-semibold text-xs tracking-wide shadow-2xl flex items-center gap-2">
-    <i class="ph-bold ph-check-circle text-emerald-600 text-lg"></i>
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 px-5 py-3 rounded-2xl bg-slate-900 text-white font-semibold text-xs tracking-wide shadow-2xl flex items-center gap-2">
+    <i class="ph-bold ph-check-circle text-emerald-400 text-lg"></i>
     <span id="toast-msg">Email copied to clipboard!</span>
   </div>
 
-  <!-- Scripts -->
+  <!-- Main JavaScript File -->
   <script src="js/main.js"></script>
 </body>
 </html>
