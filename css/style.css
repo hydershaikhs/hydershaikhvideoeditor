@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Hyder Shaikh — Luxury Video Editor Portfolio
+   Maroon & White Color Palette & Bespoke UI
+   ========================================================================== */
+
+:root {
+  --color-maroon-deep: #580F1B;
+  --color-maroon-dark: #2A050B;
+  --color-maroon-black: #150205;
+  --color-maroon-accent: #A91B3E;
+  --color-maroon-bright: #DF5876;
+  --color-white: #FFFFFF;
+  --color-offwhite: #F8F9FA;
+  --color-border-subtle: rgba(255, 255, 255, 0.12);
+  --color-border-glow: rgba(169, 27, 62, 0.35);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #190306;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #580F1B;
+  border-radius: 9999px;
+  border: 2px solid #190306;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8A1432;
+}
+
+/* Film Grain Texture */
+.film-grain {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Nav Underline on Hover */
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--color-white);
+  transition: width 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* Filter Active State */
+.filter-btn.active {
+  background-color: var(--color-white);
+  color: var(--color-maroon-dark);
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+}
+
+/* Project Card Hover Shadows & Lighting */
+.project-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Before / After Slider Touch Action & Cursor */
+#before-after-container {
+  touch-action: pan-y;
+}
+
+#slider-handle {
+  transition: opacity 0.2s ease;
+}
+
+#slider-handle:active {
+  cursor: grabbing;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Smooth Focus Rings */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-white) !important;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(42, 5, 11, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Button Subtle Hover Glow */
+.btn-glow:hover {
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .hero-heading {
+    font-size: 2.25rem;
+    line-height: 1.15;
+  }
+}
